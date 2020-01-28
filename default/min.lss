@@ -1,0 +1,3019 @@
+
+min.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000014  00800100  00000fa6  0000103a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000fa6  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000004d  00800114  00800114  0000104e  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00001050  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000097  00000000  00000000  0000171c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      0000002f  00000000  00000000  000017b3  2**0
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000028  00000000  00000000  000017e2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   000015d4  00000000  00000000  0000180a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000234  00000000  00000000  00002dde  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   0000050f  00000000  00000000  00003012  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  0000020c  00000000  00000000  00003524  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00000324  00000000  00000000  00003730  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00001675  00000000  00000000  00003a54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000018  00000000  00000000  000050c9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 a5 00 	jmp	0x14a	; 0x14a <__vector_1>
+   8:	0c 94 c5 00 	jmp	0x18a	; 0x18a <__vector_2>
+   c:	0c 94 05 01 	jmp	0x20a	; 0x20a <__vector_3>
+  10:	0c 94 16 01 	jmp	0x22c	; 0x22c <__vector_4>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 27 01 	jmp	0x24e	; 0x24e <__vector_7>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 67 00 	jmp	0xce	; 0xce <__vector_10>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 d0 06 	jmp	0xda0	; 0xda0 <__vector_16>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 71 00 	jmp	0xe2	; 0xe2 <__vector_29>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e6 ea       	ldi	r30, 0xA6	; 166
+  a0:	ff e0       	ldi	r31, 0x0F	; 15
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a4 31       	cpi	r26, 0x14	; 20
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	a4 e1       	ldi	r26, 0x14	; 20
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a1 36       	cpi	r26, 0x61	; 97
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 06 07 	call	0xe0c	; 0xe0c <main>
+  c6:	0c 94 d1 07 	jmp	0xfa2	; 0xfa2 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <__vector_10>:
+ 
+sei(); // 인터럽트 작동
+}
+ 
+ISR(TIMER2_OVF_vect)
+{
+  ce:	1f 92       	push	r1
+  d0:	0f 92       	push	r0
+  d2:	0f b6       	in	r0, 0x3f	; 63
+  d4:	0f 92       	push	r0
+  d6:	11 24       	eor	r1, r1
+}
+  d8:	0f 90       	pop	r0
+  da:	0f be       	out	0x3f, r0	; 63
+  dc:	0f 90       	pop	r0
+  de:	1f 90       	pop	r1
+  e0:	18 95       	reti
+
+000000e2 <__vector_29>:
+ 
+ISR(TIMER3_OVF_vect) // ms, s, m 단위 조정
+{
+  e2:	1f 92       	push	r1
+  e4:	0f 92       	push	r0
+  e6:	0f b6       	in	r0, 0x3f	; 63
+  e8:	0f 92       	push	r0
+  ea:	11 24       	eor	r1, r1
+  ec:	8f 93       	push	r24
+  ee:	9f 93       	push	r25
+cli(); // 인터럽트 중지
+  f0:	f8 94       	cli
+TCNT3 = 0xB0FF; // BOFF~FFFF 카운트(65535 ? 45311 = 20224), 1/(7.3727Mhz/ 1024prescaler) * 20224 = 0.022s마다 오버플로우 인터럽트
+  f2:	8f ef       	ldi	r24, 0xFF	; 255
+  f4:	90 eb       	ldi	r25, 0xB0	; 176
+  f6:	90 93 89 00 	sts	0x0089, r25
+  fa:	80 93 88 00 	sts	0x0088, r24
+ 
+ 
+time_ms++; // time_ms 증가
+  fe:	80 91 43 01 	lds	r24, 0x0143
+ 102:	8f 5f       	subi	r24, 0xFF	; 255
+ 104:	80 93 43 01 	sts	0x0143, r24
+if (time_ms >= 99) // time_ms가 99이상일 경우 실행
+ 108:	83 36       	cpi	r24, 0x63	; 99
+ 10a:	b8 f0       	brcs	.+46     	; 0x13a <__vector_29+0x58>
+{
+ 
+if (time_s >= 59) // time_s가 59이상일 경우 실행
+ 10c:	80 91 42 01 	lds	r24, 0x0142
+ 110:	8b 33       	cpi	r24, 0x3B	; 59
+ 112:	40 f0       	brcs	.+16     	; 0x124 <__vector_29+0x42>
+{
+time_m++; // time_m값 1 증가
+ 114:	80 91 41 01 	lds	r24, 0x0141
+ 118:	8f 5f       	subi	r24, 0xFF	; 255
+ 11a:	80 93 41 01 	sts	0x0141, r24
+time_s = 0; // time_s값 0으로 돌아감
+ 11e:	10 92 42 01 	sts	0x0142, r1
+ 122:	03 c0       	rjmp	.+6      	; 0x12a <__vector_29+0x48>
+}
+else
+time_s++; // 그 외엔 time_s값 증가
+ 124:	8f 5f       	subi	r24, 0xFF	; 255
+ 126:	80 93 42 01 	sts	0x0142, r24
+ 
+if (time_m>9) // time_m이 9초과할 경우 실행
+ 12a:	80 91 41 01 	lds	r24, 0x0141
+ 12e:	8a 30       	cpi	r24, 0x0A	; 10
+ 130:	10 f0       	brcs	.+4      	; 0x136 <__vector_29+0x54>
+{
+time_m = 0; // time_m값 0으로 돌아감
+ 132:	10 92 41 01 	sts	0x0141, r1
+}
+ 
+time_ms = 0; // 그 후 time_ms값도 0으로 돌아감
+ 136:	10 92 43 01 	sts	0x0143, r1
+}
+sei(); // 인터럽트 사용
+ 13a:	78 94       	sei
+}
+ 13c:	9f 91       	pop	r25
+ 13e:	8f 91       	pop	r24
+ 140:	0f 90       	pop	r0
+ 142:	0f be       	out	0x3f, r0	; 63
+ 144:	0f 90       	pop	r0
+ 146:	1f 90       	pop	r1
+ 148:	18 95       	reti
+
+0000014a <__vector_1>:
+ 
+ 
+ISR(INT0_vect) // Button1에 대한 ISR 설정
+{
+ 14a:	1f 92       	push	r1
+ 14c:	0f 92       	push	r0
+ 14e:	0f b6       	in	r0, 0x3f	; 63
+ 150:	0f 92       	push	r0
+ 152:	11 24       	eor	r1, r1
+ 154:	8f 93       	push	r24
+cli(); // 인터럽트 중지
+ 156:	f8 94       	cli
+ 
+if (++mode_sel>4) // 모드4를 넘길 경우
+ 158:	80 91 39 01 	lds	r24, 0x0139
+ 15c:	8f 5f       	subi	r24, 0xFF	; 255
+ 15e:	85 30       	cpi	r24, 0x05	; 5
+ 160:	18 f4       	brcc	.+6      	; 0x168 <__vector_1+0x1e>
+ 162:	80 93 39 01 	sts	0x0139, r24
+ 166:	02 c0       	rjmp	.+4      	; 0x16c <__vector_1+0x22>
+mode_sel = 0; // 모드0으로 돌아감
+ 168:	10 92 39 01 	sts	0x0139, r1
+ 
+mode_state = 0; // 모드0으로 돌아감과 동시에 세팅 초기화
+ 16c:	10 92 38 01 	sts	0x0138, r1
+sw2 = 0;
+ 170:	10 92 34 01 	sts	0x0134, r1
+sw3 = 0;
+ 174:	10 92 33 01 	sts	0x0133, r1
+sw6 = 0;
+ 178:	10 92 32 01 	sts	0x0132, r1
+ 
+sei(); // 인터럽트 실행
+ 17c:	78 94       	sei
+}
+ 17e:	8f 91       	pop	r24
+ 180:	0f 90       	pop	r0
+ 182:	0f be       	out	0x3f, r0	; 63
+ 184:	0f 90       	pop	r0
+ 186:	1f 90       	pop	r1
+ 188:	18 95       	reti
+
+0000018a <__vector_2>:
+ 
+ISR(INT1_vect) // Button2에 대한 ISR 설정
+{
+ 18a:	1f 92       	push	r1
+ 18c:	0f 92       	push	r0
+ 18e:	0f b6       	in	r0, 0x3f	; 63
+ 190:	0f 92       	push	r0
+ 192:	11 24       	eor	r1, r1
+ 194:	6f 93       	push	r22
+ 196:	7f 93       	push	r23
+ 198:	8f 93       	push	r24
+ 19a:	9f 93       	push	r25
+cli();
+ 19c:	f8 94       	cli
+mode_state = !mode_state; // mode_state 변경
+ 19e:	81 e0       	ldi	r24, 0x01	; 1
+ 1a0:	90 91 38 01 	lds	r25, 0x0138
+ 1a4:	91 11       	cpse	r25, r1
+ 1a6:	80 e0       	ldi	r24, 0x00	; 0
+ 1a8:	80 93 38 01 	sts	0x0138, r24
+if (mode_sel == 2) // 모드2일 경우
+ 1ac:	80 91 39 01 	lds	r24, 0x0139
+ 1b0:	82 30       	cpi	r24, 0x02	; 2
+ 1b2:	39 f4       	brne	.+14     	; 0x1c2 <__vector_2+0x38>
+{
+FND_SEL_CNT = 0;
+ 1b4:	10 92 31 01 	sts	0x0131, r1
+FND_CNT = FND_DATA[FND_SEL_CNT];
+ 1b8:	80 91 5c 01 	lds	r24, 0x015C
+ 1bc:	80 93 30 01 	sts	0x0130, r24
+ 1c0:	17 c0       	rjmp	.+46     	; 0x1f0 <__vector_2+0x66>
+}
+else if(mode_sel == 3) // 모드3일 경우
+ 1c2:	83 30       	cpi	r24, 0x03	; 3
+ 1c4:	a9 f4       	brne	.+42     	; 0x1f0 <__vector_2+0x66>
+{
+if (downcount_setting == 0)
+ 1c6:	80 91 26 01 	lds	r24, 0x0126
+ 1ca:	81 11       	cpse	r24, r1
+ 1cc:	05 c0       	rjmp	.+10     	; 0x1d8 <__vector_2+0x4e>
+{
+downcount_setting = 1;
+ 1ce:	81 e0       	ldi	r24, 0x01	; 1
+ 1d0:	80 93 26 01 	sts	0x0126, r24
+end = 0;
+ 1d4:	10 92 15 01 	sts	0x0115, r1
+}
+downcount_al_enable = 1;
+ 1d8:	81 e0       	ldi	r24, 0x01	; 1
+ 1da:	80 93 14 01 	sts	0x0114, r24
+FND_SEL_CNT = 0;
+ 1de:	10 92 31 01 	sts	0x0131, r1
+FND_CNT = down_s%10;
+ 1e2:	80 91 3d 01 	lds	r24, 0x013D
+ 1e6:	6a e0       	ldi	r22, 0x0A	; 10
+ 1e8:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ 1ec:	90 93 30 01 	sts	0x0130, r25
+}
+ 
+ 
+sw1 = 1;
+ 1f0:	81 e0       	ldi	r24, 0x01	; 1
+ 1f2:	80 93 35 01 	sts	0x0135, r24
+sei();
+ 1f6:	78 94       	sei
+}
+ 1f8:	9f 91       	pop	r25
+ 1fa:	8f 91       	pop	r24
+ 1fc:	7f 91       	pop	r23
+ 1fe:	6f 91       	pop	r22
+ 200:	0f 90       	pop	r0
+ 202:	0f be       	out	0x3f, r0	; 63
+ 204:	0f 90       	pop	r0
+ 206:	1f 90       	pop	r1
+ 208:	18 95       	reti
+
+0000020a <__vector_3>:
+ 
+ISR(INT2_vect) // Button3에 대한 ISR 설정
+{
+ 20a:	1f 92       	push	r1
+ 20c:	0f 92       	push	r0
+ 20e:	0f b6       	in	r0, 0x3f	; 63
+ 210:	0f 92       	push	r0
+ 212:	11 24       	eor	r1, r1
+ 214:	8f 93       	push	r24
+cli();
+ 216:	f8 94       	cli
+sw2 = 1;
+ 218:	81 e0       	ldi	r24, 0x01	; 1
+ 21a:	80 93 34 01 	sts	0x0134, r24
+sei();
+ 21e:	78 94       	sei
+ 
+}
+ 220:	8f 91       	pop	r24
+ 222:	0f 90       	pop	r0
+ 224:	0f be       	out	0x3f, r0	; 63
+ 226:	0f 90       	pop	r0
+ 228:	1f 90       	pop	r1
+ 22a:	18 95       	reti
+
+0000022c <__vector_4>:
+ 
+ISR(INT3_vect) // Button4에 대한 ISR 설정
+{
+ 22c:	1f 92       	push	r1
+ 22e:	0f 92       	push	r0
+ 230:	0f b6       	in	r0, 0x3f	; 63
+ 232:	0f 92       	push	r0
+ 234:	11 24       	eor	r1, r1
+ 236:	8f 93       	push	r24
+cli();
+ 238:	f8 94       	cli
+sw3 = 1;
+ 23a:	81 e0       	ldi	r24, 0x01	; 1
+ 23c:	80 93 33 01 	sts	0x0133, r24
+sei();
+ 240:	78 94       	sei
+}
+ 242:	8f 91       	pop	r24
+ 244:	0f 90       	pop	r0
+ 246:	0f be       	out	0x3f, r0	; 63
+ 248:	0f 90       	pop	r0
+ 24a:	1f 90       	pop	r1
+ 24c:	18 95       	reti
+
+0000024e <__vector_7>:
+ 
+ISR(INT6_vect) // Button5에 대한 ISR 설정
+{
+ 24e:	1f 92       	push	r1
+ 250:	0f 92       	push	r0
+ 252:	0f b6       	in	r0, 0x3f	; 63
+ 254:	0f 92       	push	r0
+ 256:	11 24       	eor	r1, r1
+ 258:	8f 93       	push	r24
+cli();
+ 25a:	f8 94       	cli
+sw6 = 1;
+ 25c:	81 e0       	ldi	r24, 0x01	; 1
+ 25e:	80 93 32 01 	sts	0x0132, r24
+sei();
+ 262:	78 94       	sei
+}
+ 264:	8f 91       	pop	r24
+ 266:	0f 90       	pop	r0
+ 268:	0f be       	out	0x3f, r0	; 63
+ 26a:	0f 90       	pop	r0
+ 26c:	1f 90       	pop	r1
+ 26e:	18 95       	reti
+
+00000270 <print_FND_2bit>:
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 270:	a4 2f       	mov	r26, r20
+ 272:	b0 e0       	ldi	r27, 0x00	; 0
+ 274:	a6 5f       	subi	r26, 0xF6	; 246
+ 276:	be 4f       	sbci	r27, 0xFE	; 254
+ 278:	e6 2f       	mov	r30, r22
+ 27a:	f0 e0       	ldi	r31, 0x00	; 0
+ 27c:	e0 50       	subi	r30, 0x00	; 0
+ 27e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 280:	9c 91       	ld	r25, X
+ 282:	20 81       	ld	r18, Z
+ 284:	92 2b       	or	r25, r18
+ 
+switch (time_type) // 출력할 Segment를 선택
+ 286:	81 30       	cpi	r24, 0x01	; 1
+ 288:	31 f0       	breq	.+12     	; 0x296 <print_FND_2bit+0x26>
+ 28a:	18 f0       	brcs	.+6      	; 0x292 <print_FND_2bit+0x22>
+ 28c:	82 30       	cpi	r24, 0x02	; 2
+ 28e:	39 f4       	brne	.+14     	; 0x29e <print_FND_2bit+0x2e>
+ 290:	05 c0       	rjmp	.+10     	; 0x29c <print_FND_2bit+0x2c>
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 292:	95 bb       	out	0x15, r25	; 21
+break;
+ 294:	08 95       	ret
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 296:	90 93 62 00 	sts	0x0062, r25
+break;
+ 29a:	08 95       	ret
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 29c:	9b bb       	out	0x1b, r25	; 27
+ 29e:	08 95       	ret
+
+000002a0 <mode_0_Basic_Clock>:
+ 
+ 
+ 
+void mode_0_Basic_Clock() // mode1 함수
+{
+print_FND_2bit(msec, time_ms / 10, time_ms % 10); // time_ms의 10진수 값의 1의 자리와 10의 자리를 분리
+ 2a0:	80 91 43 01 	lds	r24, 0x0143
+ 2a4:	2a e0       	ldi	r18, 0x0A	; 10
+ 2a6:	62 2f       	mov	r22, r18
+ 2a8:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 2ac:	a9 2f       	mov	r26, r25
+ 2ae:	b0 e0       	ldi	r27, 0x00	; 0
+ 2b0:	a6 5f       	subi	r26, 0xF6	; 246
+ 2b2:	be 4f       	sbci	r27, 0xFE	; 254
+ 2b4:	e8 2f       	mov	r30, r24
+ 2b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b8:	e0 50       	subi	r30, 0x00	; 0
+ 2ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2bc:	8c 91       	ld	r24, X
+ 2be:	90 81       	ld	r25, Z
+ 2c0:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 2c2:	85 bb       	out	0x15, r24	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2c4:	8f e9       	ldi	r24, 0x9F	; 159
+ 2c6:	9f e0       	ldi	r25, 0x0F	; 15
+ 2c8:	01 97       	sbiw	r24, 0x01	; 1
+ 2ca:	f1 f7       	brne	.-4      	; 0x2c8 <mode_0_Basic_Clock+0x28>
+ 2cc:	00 c0       	rjmp	.+0      	; 0x2ce <mode_0_Basic_Clock+0x2e>
+ 2ce:	00 00       	nop
+ 
+void mode_0_Basic_Clock() // mode1 함수
+{
+print_FND_2bit(msec, time_ms / 10, time_ms % 10); // time_ms의 10진수 값의 1의 자리와 10의 자리를 분리
+_delay_ms(1);
+print_FND_2bit(sec, time_s / 10, time_s % 10); // time_s의 10진수 값의 1의 자리와 10의 자리를 분리
+ 2d0:	80 91 42 01 	lds	r24, 0x0142
+ 2d4:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 2d8:	a9 2f       	mov	r26, r25
+ 2da:	b0 e0       	ldi	r27, 0x00	; 0
+ 2dc:	a6 5f       	subi	r26, 0xF6	; 246
+ 2de:	be 4f       	sbci	r27, 0xFE	; 254
+ 2e0:	e8 2f       	mov	r30, r24
+ 2e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e4:	e0 50       	subi	r30, 0x00	; 0
+ 2e6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2e8:	8c 91       	ld	r24, X
+ 2ea:	90 81       	ld	r25, Z
+ 2ec:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 2ee:	80 93 62 00 	sts	0x0062, r24
+ 2f2:	8f e9       	ldi	r24, 0x9F	; 159
+ 2f4:	9f e0       	ldi	r25, 0x0F	; 15
+ 2f6:	01 97       	sbiw	r24, 0x01	; 1
+ 2f8:	f1 f7       	brne	.-4      	; 0x2f6 <mode_0_Basic_Clock+0x56>
+ 2fa:	00 c0       	rjmp	.+0      	; 0x2fc <mode_0_Basic_Clock+0x5c>
+ 2fc:	00 00       	nop
+{
+print_FND_2bit(msec, time_ms / 10, time_ms % 10); // time_ms의 10진수 값의 1의 자리와 10의 자리를 분리
+_delay_ms(1);
+print_FND_2bit(sec, time_s / 10, time_s % 10); // time_s의 10진수 값의 1의 자리와 10의 자리를 분리
+_delay_ms(1);
+print_FND_2bit(min, time_m / 10, time_m % 10); // time_m의 10진수 값의 1의 자리와 10의 자리를 분리
+ 2fe:	80 91 41 01 	lds	r24, 0x0141
+ 302:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 306:	a9 2f       	mov	r26, r25
+ 308:	b0 e0       	ldi	r27, 0x00	; 0
+ 30a:	a6 5f       	subi	r26, 0xF6	; 246
+ 30c:	be 4f       	sbci	r27, 0xFE	; 254
+ 30e:	e8 2f       	mov	r30, r24
+ 310:	f0 e0       	ldi	r31, 0x00	; 0
+ 312:	e0 50       	subi	r30, 0x00	; 0
+ 314:	ff 4f       	sbci	r31, 0xFF	; 255
+ 316:	8c 91       	ld	r24, X
+ 318:	90 81       	ld	r25, Z
+ 31a:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 31c:	8b bb       	out	0x1b, r24	; 27
+ 31e:	8f e9       	ldi	r24, 0x9F	; 159
+ 320:	9f e0       	ldi	r25, 0x0F	; 15
+ 322:	01 97       	sbiw	r24, 0x01	; 1
+ 324:	f1 f7       	brne	.-4      	; 0x322 <mode_0_Basic_Clock+0x82>
+ 326:	00 c0       	rjmp	.+0      	; 0x328 <mode_0_Basic_Clock+0x88>
+ 328:	00 00       	nop
+ 32a:	08 95       	ret
+
+0000032c <mode_1_Stop_Watch>:
+_delay_ms(1);
+}
+ 
+ 
+void mode_1_Stop_Watch() // mode1 함수
+{
+ 32c:	cf 93       	push	r28
+ 32e:	df 93       	push	r29
+ 
+while (mode_state == 1) // mode state값이 1 일 때 실행
+{
+ 
+ 
+PORTG = 0xFF; // LED On
+ 330:	4f ef       	ldi	r20, 0xFF	; 255
+STOP_FLAG2 = 1; // STOP_FLAG2에 1을 넣음 (아래 if문 실행하기 위함)
+ 
+stop_ms = 0; //!!!!!
+stop_s = 0;
+stop_m = 0; // 이게 없어져야할 듯?
+TCCR0 = 0x07; // 1024분주 선택
+ 332:	57 e0       	ldi	r21, 0x07	; 7
+TCNT0 = 0x6C; // FF~6C 카운트(255-108=147), 1/(7.3728Mhz/ 1024prescaler)*147 = 0.02s마다 오버플로우 인터럽트
+ 334:	cc e6       	ldi	r28, 0x6C	; 108
+STOP_FLAG = 1; // 나가기 전에 STOP_FLAG 1 입력
+}
+ 
+TIMSK |= 0x01; // 타이머0의 출력비교 인터럽트 Enable
+ 
+print_FND_2bit(msec, stop_s / 10, stop_s % 10); // stop_s값 2비트 출력
+ 336:	2a e0       	ldi	r18, 0x0A	; 10
+LAP_TIME[LAP_INDEX][3] = stop_m / 10; // stop_m의 십의자리 저장
+}
+ 
+if (LAP_INDEX >= 3) // LAP_INDEX가 3일 경우 실행
+{
+EIMSK = 0x4B; // 인터럽트2를 Disable시켜서 더 이상 숫자가 올라가는 것을 막는다.
+ 338:	db e4       	ldi	r29, 0x4B	; 75
+ 
+ 
+void mode_1_Stop_Watch() // mode1 함수
+{
+ 
+while (mode_state == 1) // mode state값이 1 일 때 실행
+ 33a:	9a c0       	rjmp	.+308    	; 0x470 <mode_1_Stop_Watch+0x144>
+{
+ 
+ 
+PORTG = 0xFF; // LED On
+ 33c:	40 93 65 00 	sts	0x0065, r20
+ 340:	3f ef       	ldi	r19, 0xFF	; 255
+ 342:	60 e7       	ldi	r22, 0x70	; 112
+ 344:	92 e0       	ldi	r25, 0x02	; 2
+ 346:	31 50       	subi	r19, 0x01	; 1
+ 348:	60 40       	sbci	r22, 0x00	; 0
+ 34a:	90 40       	sbci	r25, 0x00	; 0
+ 34c:	e1 f7       	brne	.-8      	; 0x346 <mode_1_Stop_Watch+0x1a>
+ 34e:	00 c0       	rjmp	.+0      	; 0x350 <mode_1_Stop_Watch+0x24>
+ 350:	00 00       	nop
+_delay_ms(50);
+PORTG = 0x00; // LED Off ( 50ms마다 깜빡인다)
+ 352:	10 92 65 00 	sts	0x0065, r1
+ 356:	3f ef       	ldi	r19, 0xFF	; 255
+ 358:	60 e7       	ldi	r22, 0x70	; 112
+ 35a:	92 e0       	ldi	r25, 0x02	; 2
+ 35c:	31 50       	subi	r19, 0x01	; 1
+ 35e:	60 40       	sbci	r22, 0x00	; 0
+ 360:	90 40       	sbci	r25, 0x00	; 0
+ 362:	e1 f7       	brne	.-8      	; 0x35c <mode_1_Stop_Watch+0x30>
+ 364:	00 c0       	rjmp	.+0      	; 0x366 <mode_1_Stop_Watch+0x3a>
+ 366:	00 00       	nop
+_delay_ms(50);
+ 
+if (STOP_FLAG == 0) // STOP_FLAG가 0일 때 실행 (한번만 실행)
+ 368:	90 91 45 01 	lds	r25, 0x0145
+ 36c:	91 11       	cpse	r25, r1
+ 36e:	0e c0       	rjmp	.+28     	; 0x38c <mode_1_Stop_Watch+0x60>
+{
+STOP_FLAG2 = 1; // STOP_FLAG2에 1을 넣음 (아래 if문 실행하기 위함)
+ 370:	80 93 44 01 	sts	0x0144, r24
+ 
+stop_ms = 0; //!!!!!
+ 374:	10 92 40 01 	sts	0x0140, r1
+stop_s = 0;
+ 378:	10 92 3f 01 	sts	0x013F, r1
+stop_m = 0; // 이게 없어져야할 듯?
+ 37c:	10 92 3e 01 	sts	0x013E, r1
+TCCR0 = 0x07; // 1024분주 선택
+ 380:	53 bf       	out	0x33, r21	; 51
+TCNT0 = 0x6C; // FF~6C 카운트(255-108=147), 1/(7.3728Mhz/ 1024prescaler)*147 = 0.02s마다 오버플로우 인터럽트
+ 382:	c2 bf       	out	0x32, r28	; 50
+ 
+LAP_INDEX = 0; //!!!!!
+ 384:	10 92 46 01 	sts	0x0146, r1
+ 
+STOP_FLAG = 1; // 나가기 전에 STOP_FLAG 1 입력
+ 388:	80 93 45 01 	sts	0x0145, r24
+}
+ 
+TIMSK |= 0x01; // 타이머0의 출력비교 인터럽트 Enable
+ 38c:	87 b7       	in	r24, 0x37	; 55
+ 38e:	81 60       	ori	r24, 0x01	; 1
+ 390:	87 bf       	out	0x37, r24	; 55
+ 
+print_FND_2bit(msec, stop_s / 10, stop_s % 10); // stop_s값 2비트 출력
+ 392:	80 91 3f 01 	lds	r24, 0x013F
+ 396:	62 2f       	mov	r22, r18
+ 398:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 39c:	a9 2f       	mov	r26, r25
+ 39e:	b0 e0       	ldi	r27, 0x00	; 0
+ 3a0:	a6 5f       	subi	r26, 0xF6	; 246
+ 3a2:	be 4f       	sbci	r27, 0xFE	; 254
+ 3a4:	e8 2f       	mov	r30, r24
+ 3a6:	f0 e0       	ldi	r31, 0x00	; 0
+ 3a8:	e0 50       	subi	r30, 0x00	; 0
+ 3aa:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3ac:	8c 91       	ld	r24, X
+ 3ae:	90 81       	ld	r25, Z
+ 3b0:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 3b2:	85 bb       	out	0x15, r24	; 21
+ 3b4:	8f e9       	ldi	r24, 0x9F	; 159
+ 3b6:	9f e0       	ldi	r25, 0x0F	; 15
+ 3b8:	01 97       	sbiw	r24, 0x01	; 1
+ 3ba:	f1 f7       	brne	.-4      	; 0x3b8 <mode_1_Stop_Watch+0x8c>
+ 3bc:	00 c0       	rjmp	.+0      	; 0x3be <mode_1_Stop_Watch+0x92>
+ 3be:	00 00       	nop
+ 
+TIMSK |= 0x01; // 타이머0의 출력비교 인터럽트 Enable
+ 
+print_FND_2bit(msec, stop_s / 10, stop_s % 10); // stop_s값 2비트 출력
+_delay_ms(1);
+print_FND_2bit(sec, stop_m / 10, stop_m % 10); // stop_m값 2비트 출력
+ 3c0:	80 91 3e 01 	lds	r24, 0x013E
+ 3c4:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 3c8:	a9 2f       	mov	r26, r25
+ 3ca:	b0 e0       	ldi	r27, 0x00	; 0
+ 3cc:	a6 5f       	subi	r26, 0xF6	; 246
+ 3ce:	be 4f       	sbci	r27, 0xFE	; 254
+ 3d0:	e8 2f       	mov	r30, r24
+ 3d2:	f0 e0       	ldi	r31, 0x00	; 0
+ 3d4:	e0 50       	subi	r30, 0x00	; 0
+ 3d6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3d8:	8c 91       	ld	r24, X
+ 3da:	90 81       	ld	r25, Z
+ 3dc:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 3de:	80 93 62 00 	sts	0x0062, r24
+ 3e2:	8f e9       	ldi	r24, 0x9F	; 159
+ 3e4:	9f e0       	ldi	r25, 0x0F	; 15
+ 3e6:	01 97       	sbiw	r24, 0x01	; 1
+ 3e8:	f1 f7       	brne	.-4      	; 0x3e6 <mode_1_Stop_Watch+0xba>
+ 3ea:	00 c0       	rjmp	.+0      	; 0x3ec <mode_1_Stop_Watch+0xc0>
+ 3ec:	00 00       	nop
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 3ee:	a0 91 46 01 	lds	r26, 0x0146
+ 3f2:	b0 e0       	ldi	r27, 0x00	; 0
+ 3f4:	a6 5f       	subi	r26, 0xF6	; 246
+ 3f6:	be 4f       	sbci	r27, 0xFE	; 254
+ 3f8:	e0 91 39 01 	lds	r30, 0x0139
+ 3fc:	f0 e0       	ldi	r31, 0x00	; 0
+ 3fe:	e0 50       	subi	r30, 0x00	; 0
+ 400:	ff 4f       	sbci	r31, 0xFF	; 255
+ 402:	8c 91       	ld	r24, X
+ 404:	90 81       	ld	r25, Z
+ 406:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 408:	8b bb       	out	0x1b, r24	; 27
+ 40a:	8f e9       	ldi	r24, 0x9F	; 159
+ 40c:	9f e0       	ldi	r25, 0x0F	; 15
+ 40e:	01 97       	sbiw	r24, 0x01	; 1
+ 410:	f1 f7       	brne	.-4      	; 0x40e <mode_1_Stop_Watch+0xe2>
+ 412:	00 c0       	rjmp	.+0      	; 0x414 <mode_1_Stop_Watch+0xe8>
+ 414:	00 00       	nop
+print_FND_2bit(sec, stop_m / 10, stop_m % 10); // stop_m값 2비트 출력
+_delay_ms(1);
+print_FND_2bit(min, mode_sel, LAP_INDEX); // 5번째 Segment값 출력
+_delay_ms(1);
+ 
+if (sw2 == 1) // Button3를 누를 경우 실행
+ 416:	80 91 34 01 	lds	r24, 0x0134
+ 41a:	81 30       	cpi	r24, 0x01	; 1
+ 41c:	01 f5       	brne	.+64     	; 0x45e <mode_1_Stop_Watch+0x132>
+{
+if (LAP_INDEX < 4) //LAP_INDEX가 4미만일 경우 실행
+ 41e:	30 91 46 01 	lds	r19, 0x0146
+ 422:	34 30       	cpi	r19, 0x04	; 4
+ 424:	10 f0       	brcs	.+4      	; 0x42a <mode_1_Stop_Watch+0xfe>
+LAP_TIME[LAP_INDEX][3] = stop_m / 10; // stop_m의 십의자리 저장
+}
+ 
+if (LAP_INDEX >= 3) // LAP_INDEX가 3일 경우 실행
+{
+EIMSK = 0x4B; // 인터럽트2를 Disable시켜서 더 이상 숫자가 올라가는 것을 막는다.
+ 426:	d9 bf       	out	0x39, r29	; 57
+ 428:	18 c0       	rjmp	.+48     	; 0x45a <mode_1_Stop_Watch+0x12e>
+ 
+if (sw2 == 1) // Button3를 누를 경우 실행
+{
+if (LAP_INDEX < 4) //LAP_INDEX가 4미만일 경우 실행
+{
+LAP_TIME[LAP_INDEX][0] = stop_s % 10; // stops_s의 일의자리 저장
+ 42a:	80 91 3f 01 	lds	r24, 0x013F
+ 42e:	94 e0       	ldi	r25, 0x04	; 4
+ 430:	39 9f       	mul	r19, r25
+ 432:	f0 01       	movw	r30, r0
+ 434:	11 24       	eor	r1, r1
+ 436:	e9 5b       	subi	r30, 0xB9	; 185
+ 438:	fe 4f       	sbci	r31, 0xFE	; 254
+ 43a:	62 2f       	mov	r22, r18
+ 43c:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ 440:	90 83       	st	Z, r25
+LAP_TIME[LAP_INDEX][1] = stop_s / 10; // stop_s의 십의자리 저장
+ 442:	81 83       	std	Z+1, r24	; 0x01
+LAP_TIME[LAP_INDEX][2] = stop_m % 10; // stop_m의 일의자리 저장
+ 444:	80 91 3e 01 	lds	r24, 0x013E
+ 448:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ 44c:	92 83       	std	Z+2, r25	; 0x02
+LAP_TIME[LAP_INDEX][3] = stop_m / 10; // stop_m의 십의자리 저장
+ 44e:	83 83       	std	Z+3, r24	; 0x03
+}
+ 
+if (LAP_INDEX >= 3) // LAP_INDEX가 3일 경우 실행
+ 450:	33 30       	cpi	r19, 0x03	; 3
+ 452:	49 f3       	breq	.-46     	; 0x426 <mode_1_Stop_Watch+0xfa>
+{
+EIMSK = 0x4B; // 인터럽트2를 Disable시켜서 더 이상 숫자가 올라가는 것을 막는다.
+}
+else
+LAP_INDEX++; // 그 외에는 LAP_INDEX값 증가
+ 454:	3f 5f       	subi	r19, 0xFF	; 255
+ 456:	30 93 46 01 	sts	0x0146, r19
+ 
+sw2 = 0; // Button3 초기화
+ 45a:	10 92 34 01 	sts	0x0134, r1
+}
+ 
+ 
+ 
+ 
+if (mode_sel != 1) // 모드를 바꿀 경우 바로 탈출
+ 45e:	80 91 39 01 	lds	r24, 0x0139
+ 462:	81 30       	cpi	r24, 0x01	; 1
+ 464:	29 f0       	breq	.+10     	; 0x470 <mode_1_Stop_Watch+0x144>
+ 
+ 
+ 
+ 
+ 
+if (STOP_FLAG2 == 1) // STOP_FLAG2가 1일 경우
+ 466:	80 91 44 01 	lds	r24, 0x0144
+ 46a:	81 30       	cpi	r24, 0x01	; 1
+ 46c:	79 f4       	brne	.+30     	; 0x48c <mode_1_Stop_Watch+0x160>
+ 46e:	06 c0       	rjmp	.+12     	; 0x47c <mode_1_Stop_Watch+0x150>
+ 
+ 
+void mode_1_Stop_Watch() // mode1 함수
+{
+ 
+while (mode_state == 1) // mode state값이 1 일 때 실행
+ 470:	80 91 38 01 	lds	r24, 0x0138
+ 474:	81 30       	cpi	r24, 0x01	; 1
+ 476:	09 f4       	brne	.+2      	; 0x47a <mode_1_Stop_Watch+0x14e>
+ 478:	61 cf       	rjmp	.-318    	; 0x33c <mode_1_Stop_Watch+0x10>
+ 47a:	f5 cf       	rjmp	.-22     	; 0x466 <mode_1_Stop_Watch+0x13a>
+ 
+ 
+ 
+if (STOP_FLAG2 == 1) // STOP_FLAG2가 1일 경우
+{
+EIMSK = 0x4F; // 외부 인터럽트6,3,2,1,0 Enable
+ 47c:	8f e4       	ldi	r24, 0x4F	; 79
+ 47e:	89 bf       	out	0x39, r24	; 57
+ 
+ 
+STOP_FLAG = 0; // STOP_FLAG에 0 입력
+ 480:	10 92 45 01 	sts	0x0145, r1
+ 
+LAP_INDEX = 0;
+ 484:	10 92 46 01 	sts	0x0146, r1
+STOP_FLAG2 = 0; // STOP_FLAG2에 0입력 ( 다시 실행 안됨)
+ 488:	10 92 44 01 	sts	0x0144, r1
+}
+ 
+ 
+ 
+if (sw3 == 1) // Button4를 눌렀을 경우
+ 48c:	80 91 33 01 	lds	r24, 0x0133
+ 490:	81 30       	cpi	r24, 0x01	; 1
+ 492:	61 f4       	brne	.+24     	; 0x4ac <mode_1_Stop_Watch+0x180>
+{
+LAP_INDEX++; // LAP_INDEX값 증가
+ 494:	80 91 46 01 	lds	r24, 0x0146
+ 498:	8f 5f       	subi	r24, 0xFF	; 255
+if (LAP_INDEX >= 4) // LAP_INDEX값이 4이상일 경우 실행
+ 49a:	84 30       	cpi	r24, 0x04	; 4
+ 49c:	18 f4       	brcc	.+6      	; 0x4a4 <mode_1_Stop_Watch+0x178>
+ 
+ 
+ 
+if (sw3 == 1) // Button4를 눌렀을 경우
+{
+LAP_INDEX++; // LAP_INDEX값 증가
+ 49e:	80 93 46 01 	sts	0x0146, r24
+ 4a2:	02 c0       	rjmp	.+4      	; 0x4a8 <mode_1_Stop_Watch+0x17c>
+if (LAP_INDEX >= 4) // LAP_INDEX값이 4이상일 경우 실행
+{
+LAP_INDEX = 0; // LAP_INDEX값이 0으로 돌아감
+ 4a4:	10 92 46 01 	sts	0x0146, r1
+}
+ 
+sw3 = 0;
+ 4a8:	10 92 33 01 	sts	0x0133, r1
+}
+print_FND_2bit(msec, LAP_TIME[LAP_INDEX][1], LAP_TIME[LAP_INDEX][0]); // LAP_INDEX의 msec숫자를 출력
+ 4ac:	e0 91 46 01 	lds	r30, 0x0146
+ 4b0:	34 e0       	ldi	r19, 0x04	; 4
+ 4b2:	e3 9f       	mul	r30, r19
+ 4b4:	f0 01       	movw	r30, r0
+ 4b6:	11 24       	eor	r1, r1
+ 4b8:	e9 5b       	subi	r30, 0xB9	; 185
+ 4ba:	fe 4f       	sbci	r31, 0xFE	; 254
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 4bc:	a0 81       	ld	r26, Z
+ 4be:	b0 e0       	ldi	r27, 0x00	; 0
+ 4c0:	a6 5f       	subi	r26, 0xF6	; 246
+ 4c2:	be 4f       	sbci	r27, 0xFE	; 254
+ 4c4:	e1 81       	ldd	r30, Z+1	; 0x01
+ 4c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 4c8:	e0 50       	subi	r30, 0x00	; 0
+ 4ca:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4cc:	8c 91       	ld	r24, X
+ 4ce:	90 81       	ld	r25, Z
+ 4d0:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 4d2:	85 bb       	out	0x15, r24	; 21
+ 4d4:	8f e9       	ldi	r24, 0x9F	; 159
+ 4d6:	9f e0       	ldi	r25, 0x0F	; 15
+ 4d8:	01 97       	sbiw	r24, 0x01	; 1
+ 4da:	f1 f7       	brne	.-4      	; 0x4d8 <mode_1_Stop_Watch+0x1ac>
+ 4dc:	00 c0       	rjmp	.+0      	; 0x4de <mode_1_Stop_Watch+0x1b2>
+ 4de:	00 00       	nop
+ 
+sw3 = 0;
+}
+print_FND_2bit(msec, LAP_TIME[LAP_INDEX][1], LAP_TIME[LAP_INDEX][0]); // LAP_INDEX의 msec숫자를 출력
+_delay_ms(1);
+print_FND_2bit(sec, LAP_TIME[LAP_INDEX][3], LAP_TIME[LAP_INDEX][2]); // LAP_INDEX의 sec숫자를 출력
+ 4e0:	e0 91 46 01 	lds	r30, 0x0146
+ 4e4:	94 e0       	ldi	r25, 0x04	; 4
+ 4e6:	e9 9f       	mul	r30, r25
+ 4e8:	f0 01       	movw	r30, r0
+ 4ea:	11 24       	eor	r1, r1
+ 4ec:	e9 5b       	subi	r30, 0xB9	; 185
+ 4ee:	fe 4f       	sbci	r31, 0xFE	; 254
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 4f0:	a2 81       	ldd	r26, Z+2	; 0x02
+ 4f2:	b0 e0       	ldi	r27, 0x00	; 0
+ 4f4:	a6 5f       	subi	r26, 0xF6	; 246
+ 4f6:	be 4f       	sbci	r27, 0xFE	; 254
+ 4f8:	e3 81       	ldd	r30, Z+3	; 0x03
+ 4fa:	f0 e0       	ldi	r31, 0x00	; 0
+ 4fc:	e0 50       	subi	r30, 0x00	; 0
+ 4fe:	ff 4f       	sbci	r31, 0xFF	; 255
+ 500:	8c 91       	ld	r24, X
+ 502:	90 81       	ld	r25, Z
+ 504:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 506:	80 93 62 00 	sts	0x0062, r24
+ 50a:	8f e9       	ldi	r24, 0x9F	; 159
+ 50c:	9f e0       	ldi	r25, 0x0F	; 15
+ 50e:	01 97       	sbiw	r24, 0x01	; 1
+ 510:	f1 f7       	brne	.-4      	; 0x50e <mode_1_Stop_Watch+0x1e2>
+ 512:	00 c0       	rjmp	.+0      	; 0x514 <mode_1_Stop_Watch+0x1e8>
+ 514:	00 00       	nop
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 516:	a0 91 46 01 	lds	r26, 0x0146
+ 51a:	b0 e0       	ldi	r27, 0x00	; 0
+ 51c:	a6 5f       	subi	r26, 0xF6	; 246
+ 51e:	be 4f       	sbci	r27, 0xFE	; 254
+ 520:	e0 91 39 01 	lds	r30, 0x0139
+ 524:	f0 e0       	ldi	r31, 0x00	; 0
+ 526:	e0 50       	subi	r30, 0x00	; 0
+ 528:	ff 4f       	sbci	r31, 0xFF	; 255
+ 52a:	8c 91       	ld	r24, X
+ 52c:	90 81       	ld	r25, Z
+ 52e:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 530:	8b bb       	out	0x1b, r24	; 27
+ 
+ 
+ 
+ 
+ 
+if (sw6 == 1) // 버튼5를 눌렀을 경우 실행 (리셋)
+ 532:	80 91 32 01 	lds	r24, 0x0132
+ 536:	81 30       	cpi	r24, 0x01	; 1
+ 538:	31 f5       	brne	.+76     	; 0x586 <mode_1_Stop_Watch+0x25a>
+ 53a:	90 91 29 01 	lds	r25, 0x0129
+{
+for (i = 0; i<4; i++)
+ 53e:	80 e0       	ldi	r24, 0x00	; 0
+ 540:	0c c0       	rjmp	.+24     	; 0x55a <mode_1_Stop_Watch+0x22e>
+{
+for (j = 0; j<4; j++)
+{
+LAP_TIME[i][j] = 0;
+ 542:	94 e0       	ldi	r25, 0x04	; 4
+ 544:	89 9f       	mul	r24, r25
+ 546:	f0 01       	movw	r30, r0
+ 548:	11 24       	eor	r1, r1
+ 54a:	e9 5b       	subi	r30, 0xB9	; 185
+ 54c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 54e:	10 82       	st	Z, r1
+ 550:	11 82       	std	Z+1, r1	; 0x01
+ 552:	12 82       	std	Z+2, r1	; 0x02
+ 554:	13 82       	std	Z+3, r1	; 0x03
+ 556:	8f 5f       	subi	r24, 0xFF	; 255
+ 558:	94 e0       	ldi	r25, 0x04	; 4
+ 
+ 
+ 
+if (sw6 == 1) // 버튼5를 눌렀을 경우 실행 (리셋)
+{
+for (i = 0; i<4; i++)
+ 55a:	84 30       	cpi	r24, 0x04	; 4
+ 55c:	90 f3       	brcs	.-28     	; 0x542 <mode_1_Stop_Watch+0x216>
+ 55e:	90 93 29 01 	sts	0x0129, r25
+ 562:	80 93 2a 01 	sts	0x012A, r24
+for (j = 0; j<4; j++)
+{
+LAP_TIME[i][j] = 0;
+}
+}
+LAP_INDEX = 0; //!!!!!
+ 566:	10 92 46 01 	sts	0x0146, r1
+stop_ms = 0; //!!!!!
+ 56a:	10 92 40 01 	sts	0x0140, r1
+stop_s = 0;
+ 56e:	10 92 3f 01 	sts	0x013F, r1
+stop_m = 0;
+ 572:	10 92 3e 01 	sts	0x013E, r1
+STOP_FLAG = 0;
+ 576:	10 92 45 01 	sts	0x0145, r1
+ 
+EIMSK = 0x47; // 외부 인터럽트6,2,1,0 Enable
+ 57a:	87 e4       	ldi	r24, 0x47	; 71
+ 57c:	89 bf       	out	0x39, r24	; 57
+ 
+sw6 = 0; // Button 5 초기화
+ 57e:	10 92 32 01 	sts	0x0132, r1
+sw1 = 0; // Button 2 초기화
+ 582:	10 92 35 01 	sts	0x0135, r1
+}
+ 
+}
+ 586:	df 91       	pop	r29
+ 588:	cf 91       	pop	r28
+ 58a:	08 95       	ret
+
+0000058c <mode_2_Alarm>:
+ 
+ 
+void mode_2_Alarm()// mode2 함수
+{
+ 
+buff = FND_BCD_TBL_H[FND_DATA[1]] | FND_BCD_TBL[FND_DATA[0]];
+ 58c:	a0 91 5c 01 	lds	r26, 0x015C
+ 590:	b0 e0       	ldi	r27, 0x00	; 0
+ 592:	a6 5f       	subi	r26, 0xF6	; 246
+ 594:	be 4f       	sbci	r27, 0xFE	; 254
+ 596:	e0 91 5d 01 	lds	r30, 0x015D
+ 59a:	f0 e0       	ldi	r31, 0x00	; 0
+ 59c:	e0 50       	subi	r30, 0x00	; 0
+ 59e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5a0:	8c 91       	ld	r24, X
+ 5a2:	90 81       	ld	r25, Z
+ 5a4:	89 2b       	or	r24, r25
+PORTC = buff; // 포트C에 buff값 출력
+ 5a6:	85 bb       	out	0x15, r24	; 21
+buff = FND_BCD_TBL_H[FND_DATA[3]] | FND_BCD_TBL[FND_DATA[2]];
+ 5a8:	a0 91 5e 01 	lds	r26, 0x015E
+ 5ac:	b0 e0       	ldi	r27, 0x00	; 0
+ 5ae:	a6 5f       	subi	r26, 0xF6	; 246
+ 5b0:	be 4f       	sbci	r27, 0xFE	; 254
+ 5b2:	e0 91 5f 01 	lds	r30, 0x015F
+ 5b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 5b8:	e0 50       	subi	r30, 0x00	; 0
+ 5ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5bc:	8c 91       	ld	r24, X
+ 5be:	90 81       	ld	r25, Z
+ 5c0:	89 2b       	or	r24, r25
+ 5c2:	80 93 3a 01 	sts	0x013A, r24
+PORTF = buff; // 포트F에 buff값 출력
+ 5c6:	80 93 62 00 	sts	0x0062, r24
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 5ca:	a0 91 60 01 	lds	r26, 0x0160
+ 5ce:	b0 e0       	ldi	r27, 0x00	; 0
+ 5d0:	a6 5f       	subi	r26, 0xF6	; 246
+ 5d2:	be 4f       	sbci	r27, 0xFE	; 254
+ 5d4:	e0 91 39 01 	lds	r30, 0x0139
+ 5d8:	f0 e0       	ldi	r31, 0x00	; 0
+ 5da:	e0 50       	subi	r30, 0x00	; 0
+ 5dc:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5de:	8c 91       	ld	r24, X
+ 5e0:	90 81       	ld	r25, Z
+ 5e2:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 5e4:	8b bb       	out	0x1b, r24	; 27
+PORTC = buff; // 포트C에 buff값 출력
+buff = FND_BCD_TBL_H[FND_DATA[3]] | FND_BCD_TBL[FND_DATA[2]];
+PORTF = buff; // 포트F에 buff값 출력
+print_FND_2bit(min, mode_sel, FND_DATA[4]);
+ 
+FND_SEL_CNT = 0;
+ 5e6:	10 92 31 01 	sts	0x0131, r1
+ 
+while (mode_state == 1) // mode_state가 1일 경우에만 실행
+{
+PORTG = 0xFF; // LED On
+ 5ea:	2f ef       	ldi	r18, 0xFF	; 255
+PORTF = buff; // 포트F에 buff값 출력
+print_FND_2bit(min, mode_sel, FND_DATA[4]);
+ 
+FND_SEL_CNT = 0;
+ 
+while (mode_state == 1) // mode_state가 1일 경우에만 실행
+ 5ec:	75 c0       	rjmp	.+234    	; 0x6d8 <mode_2_Alarm+0x14c>
+{
+PORTG = 0xFF; // LED On
+ 5ee:	20 93 65 00 	sts	0x0065, r18
+ 5f2:	3f ef       	ldi	r19, 0xFF	; 255
+ 5f4:	80 e7       	ldi	r24, 0x70	; 112
+ 5f6:	92 e0       	ldi	r25, 0x02	; 2
+ 5f8:	31 50       	subi	r19, 0x01	; 1
+ 5fa:	80 40       	sbci	r24, 0x00	; 0
+ 5fc:	90 40       	sbci	r25, 0x00	; 0
+ 5fe:	e1 f7       	brne	.-8      	; 0x5f8 <mode_2_Alarm+0x6c>
+ 600:	00 c0       	rjmp	.+0      	; 0x602 <mode_2_Alarm+0x76>
+ 602:	00 00       	nop
+_delay_ms(50);
+PORTG = 0x00; // LED Off ( 50ms마다 깜빡인다)
+ 604:	10 92 65 00 	sts	0x0065, r1
+ 608:	3f ef       	ldi	r19, 0xFF	; 255
+ 60a:	80 e7       	ldi	r24, 0x70	; 112
+ 60c:	92 e0       	ldi	r25, 0x02	; 2
+ 60e:	31 50       	subi	r19, 0x01	; 1
+ 610:	80 40       	sbci	r24, 0x00	; 0
+ 612:	90 40       	sbci	r25, 0x00	; 0
+ 614:	e1 f7       	brne	.-8      	; 0x60e <mode_2_Alarm+0x82>
+ 616:	00 c0       	rjmp	.+0      	; 0x618 <mode_2_Alarm+0x8c>
+ 618:	00 00       	nop
+_delay_ms(50);
+ 
+if (sw2 == 1) // Button3을 눌렀을 경우 실행
+ 61a:	80 91 34 01 	lds	r24, 0x0134
+ 61e:	81 30       	cpi	r24, 0x01	; 1
+ 620:	71 f4       	brne	.+28     	; 0x63e <mode_2_Alarm+0xb2>
+{
+FND_SEL_CNT++; // 좌측 Segment로 이동
+ 622:	80 91 31 01 	lds	r24, 0x0131
+ 626:	8f 5f       	subi	r24, 0xFF	; 255
+if (FND_SEL_CNT>4) // 5번째 Segment 이후
+ 628:	85 30       	cpi	r24, 0x05	; 5
+ 62a:	18 f4       	brcc	.+6      	; 0x632 <mode_2_Alarm+0xa6>
+PORTG = 0x00; // LED Off ( 50ms마다 깜빡인다)
+_delay_ms(50);
+ 
+if (sw2 == 1) // Button3을 눌렀을 경우 실행
+{
+FND_SEL_CNT++; // 좌측 Segment로 이동
+ 62c:	80 93 31 01 	sts	0x0131, r24
+ 630:	02 c0       	rjmp	.+4      	; 0x636 <mode_2_Alarm+0xaa>
+if (FND_SEL_CNT>4) // 5번째 Segment 이후
+{
+FND_SEL_CNT = 0; // 1번째 Segment로 돌아옴
+ 632:	10 92 31 01 	sts	0x0131, r1
+}
+sw2 = 0; // Button3 초기화
+ 636:	10 92 34 01 	sts	0x0134, r1
+FND_CNT = 0; // 다른 Segment를 선택하면 값을 0으로 초기화
+ 63a:	10 92 30 01 	sts	0x0130, r1
+}
+ 
+if (sw3 == 1) // Button4을 눌렀을 경우 실행
+ 63e:	80 91 33 01 	lds	r24, 0x0133
+ 642:	81 30       	cpi	r24, 0x01	; 1
+ 644:	61 f4       	brne	.+24     	; 0x65e <mode_2_Alarm+0xd2>
+{
+FND_CNT++;
+ 646:	80 91 30 01 	lds	r24, 0x0130
+ 64a:	8f 5f       	subi	r24, 0xFF	; 255
+if (FND_CNT>9) // 선택된 Segment 숫자가 9를 넘길 경우
+ 64c:	8a 30       	cpi	r24, 0x0A	; 10
+ 64e:	18 f4       	brcc	.+6      	; 0x656 <mode_2_Alarm+0xca>
+FND_CNT = 0; // 다른 Segment를 선택하면 값을 0으로 초기화
+}
+ 
+if (sw3 == 1) // Button4을 눌렀을 경우 실행
+{
+FND_CNT++;
+ 650:	80 93 30 01 	sts	0x0130, r24
+ 654:	02 c0       	rjmp	.+4      	; 0x65a <mode_2_Alarm+0xce>
+if (FND_CNT>9) // 선택된 Segment 숫자가 9를 넘길 경우
+{
+FND_CNT = 0; // 0으로 돌아옴
+ 656:	10 92 30 01 	sts	0x0130, r1
+}
+ 
+sw3 = 0; // Button4 초기화
+ 65a:	10 92 33 01 	sts	0x0133, r1
+}
+ 
+FND_DATA[FND_SEL_CNT] = FND_CNT; // 변화된 Segment값을 저장
+ 65e:	e0 91 31 01 	lds	r30, 0x0131
+ 662:	f0 e0       	ldi	r31, 0x00	; 0
+ 664:	e4 5a       	subi	r30, 0xA4	; 164
+ 666:	fe 4f       	sbci	r31, 0xFE	; 254
+ 668:	80 91 30 01 	lds	r24, 0x0130
+ 66c:	80 83       	st	Z, r24
+buff = FND_BCD_TBL_H[FND_DATA[1]] | FND_BCD_TBL[FND_DATA[0]];
+ 66e:	a0 91 5c 01 	lds	r26, 0x015C
+ 672:	b0 e0       	ldi	r27, 0x00	; 0
+ 674:	a6 5f       	subi	r26, 0xF6	; 246
+ 676:	be 4f       	sbci	r27, 0xFE	; 254
+ 678:	e0 91 5d 01 	lds	r30, 0x015D
+ 67c:	f0 e0       	ldi	r31, 0x00	; 0
+ 67e:	e0 50       	subi	r30, 0x00	; 0
+ 680:	ff 4f       	sbci	r31, 0xFF	; 255
+ 682:	8c 91       	ld	r24, X
+ 684:	90 81       	ld	r25, Z
+ 686:	89 2b       	or	r24, r25
+PORTC = buff; // PORTC에 buff 출력
+ 688:	85 bb       	out	0x15, r24	; 21
+buff = FND_BCD_TBL_H[FND_DATA[3]] | FND_BCD_TBL[FND_DATA[2]];
+ 68a:	a0 91 5e 01 	lds	r26, 0x015E
+ 68e:	b0 e0       	ldi	r27, 0x00	; 0
+ 690:	a6 5f       	subi	r26, 0xF6	; 246
+ 692:	be 4f       	sbci	r27, 0xFE	; 254
+ 694:	e0 91 5f 01 	lds	r30, 0x015F
+ 698:	f0 e0       	ldi	r31, 0x00	; 0
+ 69a:	e0 50       	subi	r30, 0x00	; 0
+ 69c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 69e:	8c 91       	ld	r24, X
+ 6a0:	90 81       	ld	r25, Z
+ 6a2:	89 2b       	or	r24, r25
+ 6a4:	80 93 3a 01 	sts	0x013A, r24
+PORTF = buff; // PORTF에 buff 출력
+ 6a8:	80 93 62 00 	sts	0x0062, r24
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 6ac:	a0 91 60 01 	lds	r26, 0x0160
+ 6b0:	b0 e0       	ldi	r27, 0x00	; 0
+ 6b2:	a6 5f       	subi	r26, 0xF6	; 246
+ 6b4:	be 4f       	sbci	r27, 0xFE	; 254
+ 6b6:	90 91 39 01 	lds	r25, 0x0139
+ 6ba:	e9 2f       	mov	r30, r25
+ 6bc:	f0 e0       	ldi	r31, 0x00	; 0
+ 6be:	e0 50       	subi	r30, 0x00	; 0
+ 6c0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6c2:	8c 91       	ld	r24, X
+ 6c4:	30 81       	ld	r19, Z
+ 6c6:	83 2b       	or	r24, r19
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 6c8:	8b bb       	out	0x1b, r24	; 27
+PORTC = buff; // PORTC에 buff 출력
+buff = FND_BCD_TBL_H[FND_DATA[3]] | FND_BCD_TBL[FND_DATA[2]];
+PORTF = buff; // PORTF에 buff 출력
+print_FND_2bit(min, mode_sel, FND_DATA[4]); // FND_DATA[4]의 의미는? main 함수 조건문에서 time_m과 비교하므로 분으로 해석됨. 즉 alarm은 m(한자리), s, ms으로 설정
+ 
+if (mode_sel != 2) // 모드를 바꿀 경우 바로 탈출
+ 6ca:	92 30       	cpi	r25, 0x02	; 2
+ 6cc:	29 f0       	breq	.+10     	; 0x6d8 <mode_2_Alarm+0x14c>
+break;
+}
+ 
+ 
+if (sw6 == 1) // Button 5를 눌렀을 경우
+ 6ce:	80 91 32 01 	lds	r24, 0x0132
+ 6d2:	81 30       	cpi	r24, 0x01	; 1
+ 6d4:	59 f4       	brne	.+22     	; 0x6ec <mode_2_Alarm+0x160>
+ 6d6:	06 c0       	rjmp	.+12     	; 0x6e4 <mode_2_Alarm+0x158>
+PORTF = buff; // 포트F에 buff값 출력
+print_FND_2bit(min, mode_sel, FND_DATA[4]);
+ 
+FND_SEL_CNT = 0;
+ 
+while (mode_state == 1) // mode_state가 1일 경우에만 실행
+ 6d8:	80 91 38 01 	lds	r24, 0x0138
+ 6dc:	81 30       	cpi	r24, 0x01	; 1
+ 6de:	09 f4       	brne	.+2      	; 0x6e2 <mode_2_Alarm+0x156>
+ 6e0:	86 cf       	rjmp	.-244    	; 0x5ee <mode_2_Alarm+0x62>
+ 6e2:	f5 cf       	rjmp	.-22     	; 0x6ce <mode_2_Alarm+0x142>
+}
+ 
+ 
+if (sw6 == 1) // Button 5를 눌렀을 경우
+{
+al_enable = 1; // 알람 기능 실행
+ 6e4:	80 93 37 01 	sts	0x0137, r24
+sw6 = 0;
+ 6e8:	10 92 32 01 	sts	0x0132, r1
+ 6ec:	08 95       	ret
+
+000006ee <mode_3_Countdown>:
+ 
+}
+ 
+ 
+void mode_3_Countdown() // mode 3 함수
+{
+ 6ee:	0f 93       	push	r16
+ 6f0:	1f 93       	push	r17
+ 6f2:	cf 93       	push	r28
+ 6f4:	df 93       	push	r29
+switch (FND_SEL_CNT){ // 현재 시간 저장
+case 0:
+FND_CNT = down_s % 10; // 첫 번째 Segment 입력
+break;
+case 1:
+FND_CNT = down_s / 10; // 두 번째 Segment 입력
+ 6f6:	ca e0       	ldi	r28, 0x0A	; 10
+if (down_m == 0 && down_s == 0)
+{
+ 
+while (downcount_al_enable == 1)
+{
+OCR1A = 100;
+ 6f8:	24 e6       	ldi	r18, 0x64	; 100
+ 6fa:	30 e0       	ldi	r19, 0x00	; 0
+_delay_ms(20); // 20ms마다 사운드크기 100으로 설정
+OCR1A = 255;
+ 6fc:	4f ef       	ldi	r20, 0xFF	; 255
+ 6fe:	50 e0       	ldi	r21, 0x00	; 0
+ 
+}
+ 
+if (STOP_FLAG == 0) // STOP_FLAG가 0일 때 실행 (한번만 실행)
+{
+STOP_FLAG2 = 1; // STOP_FLAG2에 1입력 ( 아래 if문 실행 위함)
+ 700:	d1 e0       	ldi	r29, 0x01	; 1
+ 
+down_ms = 0;
+TCCR0 = 0x07; // 1024분주 선택
+ 702:	17 e0       	ldi	r17, 0x07	; 7
+TCNT0 = 0x6C; // FF~6C 카운트(255-108=147), 1/(7.3728Mhz/ 1024prescaler) *147 = 0.02s마다 오버플로우 인터럽트
+ 704:	0c e6       	ldi	r16, 0x6C	; 108
+ 
+ 
+void mode_3_Countdown() // mode 3 함수
+{
+ 
+while (mode_state == 1) // mode_state값이 1일 때 실행
+ 706:	32 c1       	rjmp	.+612    	; 0x96c <mode_3_Countdown+0x27e>
+{
+while (downcount_setting)
+{
+if (sw2 == 1) // Button3을 눌렀을 때 실행
+ 708:	80 91 34 01 	lds	r24, 0x0134
+ 70c:	81 30       	cpi	r24, 0x01	; 1
+ 70e:	59 f5       	brne	.+86     	; 0x766 <mode_3_Countdown+0x78>
+{
+FND_SEL_CNT++; // 좌측 Segment로 이동
+ 710:	80 91 31 01 	lds	r24, 0x0131
+ 714:	8f 5f       	subi	r24, 0xFF	; 255
+if (FND_SEL_CNT>3) // 4번째 Segment 이후
+ 716:	84 30       	cpi	r24, 0x04	; 4
+ 718:	18 f4       	brcc	.+6      	; 0x720 <mode_3_Countdown+0x32>
+{
+while (downcount_setting)
+{
+if (sw2 == 1) // Button3을 눌렀을 때 실행
+{
+FND_SEL_CNT++; // 좌측 Segment로 이동
+ 71a:	80 93 31 01 	sts	0x0131, r24
+ 71e:	02 c0       	rjmp	.+4      	; 0x724 <mode_3_Countdown+0x36>
+if (FND_SEL_CNT>3) // 4번째 Segment 이후
+{
+FND_SEL_CNT = 0; // 1번째 Segment로 돌아옴
+ 720:	10 92 31 01 	sts	0x0131, r1
+}
+ 
+ 
+switch (FND_SEL_CNT){ // 현재 시간 저장
+ 724:	80 91 31 01 	lds	r24, 0x0131
+ 728:	81 30       	cpi	r24, 0x01	; 1
+ 72a:	49 f0       	breq	.+18     	; 0x73e <mode_3_Countdown+0x50>
+ 72c:	28 f0       	brcs	.+10     	; 0x738 <mode_3_Countdown+0x4a>
+ 72e:	82 30       	cpi	r24, 0x02	; 2
+ 730:	49 f0       	breq	.+18     	; 0x744 <mode_3_Countdown+0x56>
+ 732:	83 30       	cpi	r24, 0x03	; 3
+ 734:	b1 f4       	brne	.+44     	; 0x762 <mode_3_Countdown+0x74>
+ 736:	0e c0       	rjmp	.+28     	; 0x754 <mode_3_Countdown+0x66>
+case 0:
+FND_CNT = down_s % 10; // 첫 번째 Segment 입력
+ 738:	80 91 3d 01 	lds	r24, 0x013D
+ 73c:	05 c0       	rjmp	.+10     	; 0x748 <mode_3_Countdown+0x5a>
+break;
+case 1:
+FND_CNT = down_s / 10; // 두 번째 Segment 입력
+ 73e:	80 91 3d 01 	lds	r24, 0x013D
+ 742:	0a c0       	rjmp	.+20     	; 0x758 <mode_3_Countdown+0x6a>
+break;
+case 2:
+FND_CNT = down_m % 10; // 세 번째 Segment 입력
+ 744:	80 91 3c 01 	lds	r24, 0x013C
+ 748:	6c 2f       	mov	r22, r28
+ 74a:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ 74e:	90 93 30 01 	sts	0x0130, r25
+break;
+ 752:	07 c0       	rjmp	.+14     	; 0x762 <mode_3_Countdown+0x74>
+case 3:
+FND_CNT = down_m / 10; // 네 번째 Segment 입력
+ 754:	80 91 3c 01 	lds	r24, 0x013C
+ 758:	6c 2f       	mov	r22, r28
+ 75a:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ 75e:	80 93 30 01 	sts	0x0130, r24
+break;
+default :
+break;
+}
+sw2 = 0; // Button3 초기화
+ 762:	10 92 34 01 	sts	0x0134, r1
+}
+ 
+if (sw3 == 1) // Button4를 눌렀을 경우
+ 766:	80 91 33 01 	lds	r24, 0x0133
+ 76a:	81 30       	cpi	r24, 0x01	; 1
+ 76c:	41 f5       	brne	.+80     	; 0x7be <mode_3_Countdown+0xd0>
+{
+if (++FND_CNT>9) // Segment 숫자가 9를 넘겼을 경우
+ 76e:	80 91 30 01 	lds	r24, 0x0130
+ 772:	8f 5f       	subi	r24, 0xFF	; 255
+ 774:	8a 30       	cpi	r24, 0x0A	; 10
+ 776:	18 f4       	brcc	.+6      	; 0x77e <mode_3_Countdown+0x90>
+ 778:	80 93 30 01 	sts	0x0130, r24
+ 77c:	02 c0       	rjmp	.+4      	; 0x782 <mode_3_Countdown+0x94>
+{
+FND_CNT = 0; // 0으로 돌아옴
+ 77e:	10 92 30 01 	sts	0x0130, r1
+}
+FND_DOWN[FND_SEL_CNT] = FND_CNT;
+ 782:	e0 91 31 01 	lds	r30, 0x0131
+ 786:	f0 e0       	ldi	r31, 0x00	; 0
+ 788:	e9 5a       	subi	r30, 0xA9	; 169
+ 78a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 78c:	80 91 30 01 	lds	r24, 0x0130
+ 790:	80 83       	st	Z, r24
+down_s = FND_DOWN[1] * 10 + FND_DOWN[0]; // 초단위 입력
+ 792:	90 91 58 01 	lds	r25, 0x0158
+ 796:	80 91 57 01 	lds	r24, 0x0157
+ 79a:	6a e0       	ldi	r22, 0x0A	; 10
+ 79c:	96 9f       	mul	r25, r22
+ 79e:	80 0d       	add	r24, r0
+ 7a0:	11 24       	eor	r1, r1
+ 7a2:	80 93 3d 01 	sts	0x013D, r24
+down_m = FND_DOWN[3] * 10 + FND_DOWN[2]; // 분단위 입력
+ 7a6:	90 91 5a 01 	lds	r25, 0x015A
+ 7aa:	80 91 59 01 	lds	r24, 0x0159
+ 7ae:	6a e0       	ldi	r22, 0x0A	; 10
+ 7b0:	96 9f       	mul	r25, r22
+ 7b2:	80 0d       	add	r24, r0
+ 7b4:	11 24       	eor	r1, r1
+ 7b6:	80 93 3c 01 	sts	0x013C, r24
+ 
+sw3 = 0; // Button4 초기화
+ 7ba:	10 92 33 01 	sts	0x0133, r1
+}
+ 
+ 
+print_FND_2bit(msec, down_s / 10, down_s % 10); //1번째 ,2번째 Segment출력
+ 7be:	80 91 3d 01 	lds	r24, 0x013D
+ 7c2:	6c 2f       	mov	r22, r28
+ 7c4:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 7c8:	a9 2f       	mov	r26, r25
+ 7ca:	b0 e0       	ldi	r27, 0x00	; 0
+ 7cc:	a6 5f       	subi	r26, 0xF6	; 246
+ 7ce:	be 4f       	sbci	r27, 0xFE	; 254
+ 7d0:	e8 2f       	mov	r30, r24
+ 7d2:	f0 e0       	ldi	r31, 0x00	; 0
+ 7d4:	e0 50       	subi	r30, 0x00	; 0
+ 7d6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 7d8:	8c 91       	ld	r24, X
+ 7da:	90 81       	ld	r25, Z
+ 7dc:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 7de:	85 bb       	out	0x15, r24	; 21
+ 7e0:	8f e9       	ldi	r24, 0x9F	; 159
+ 7e2:	9f e0       	ldi	r25, 0x0F	; 15
+ 7e4:	01 97       	sbiw	r24, 0x01	; 1
+ 7e6:	f1 f7       	brne	.-4      	; 0x7e4 <mode_3_Countdown+0xf6>
+ 7e8:	00 c0       	rjmp	.+0      	; 0x7ea <mode_3_Countdown+0xfc>
+ 7ea:	00 00       	nop
+}
+ 
+ 
+print_FND_2bit(msec, down_s / 10, down_s % 10); //1번째 ,2번째 Segment출력
+_delay_ms(1);
+print_FND_2bit(sec, down_m / 10, down_m % 10); //3번째 ,4번째 Segment출력
+ 7ec:	80 91 3c 01 	lds	r24, 0x013C
+ 7f0:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 7f4:	a9 2f       	mov	r26, r25
+ 7f6:	b0 e0       	ldi	r27, 0x00	; 0
+ 7f8:	a6 5f       	subi	r26, 0xF6	; 246
+ 7fa:	be 4f       	sbci	r27, 0xFE	; 254
+ 7fc:	e8 2f       	mov	r30, r24
+ 7fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 800:	e0 50       	subi	r30, 0x00	; 0
+ 802:	ff 4f       	sbci	r31, 0xFF	; 255
+ 804:	8c 91       	ld	r24, X
+ 806:	90 81       	ld	r25, Z
+ 808:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 80a:	80 93 62 00 	sts	0x0062, r24
+ 80e:	8f e9       	ldi	r24, 0x9F	; 159
+ 810:	9f e0       	ldi	r25, 0x0F	; 15
+ 812:	01 97       	sbiw	r24, 0x01	; 1
+ 814:	f1 f7       	brne	.-4      	; 0x812 <mode_3_Countdown+0x124>
+ 816:	00 c0       	rjmp	.+0      	; 0x818 <mode_3_Countdown+0x12a>
+ 818:	00 00       	nop
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 81a:	e0 91 39 01 	lds	r30, 0x0139
+ 81e:	f0 e0       	ldi	r31, 0x00	; 0
+ 820:	e0 50       	subi	r30, 0x00	; 0
+ 822:	ff 4f       	sbci	r31, 0xFF	; 255
+ 824:	80 81       	ld	r24, Z
+ 826:	90 91 0a 01 	lds	r25, 0x010A
+ 82a:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 82c:	8b bb       	out	0x1b, r24	; 27
+ 82e:	8f e9       	ldi	r24, 0x9F	; 159
+ 830:	9f e0       	ldi	r25, 0x0F	; 15
+ 832:	01 97       	sbiw	r24, 0x01	; 1
+ 834:	f1 f7       	brne	.-4      	; 0x832 <mode_3_Countdown+0x144>
+ 836:	00 c0       	rjmp	.+0      	; 0x838 <mode_3_Countdown+0x14a>
+ 838:	00 00       	nop
+print_FND_2bit(sec, down_m / 10, down_m % 10); //3번째 ,4번째 Segment출력
+_delay_ms(1);
+print_FND_2bit(min, mode_sel, 0);//5번째 Segment입력
+_delay_ms(1);
+ 
+if (sw6 == 1) // Button5를 눌렀을 경우
+ 83a:	80 91 32 01 	lds	r24, 0x0132
+ 83e:	81 30       	cpi	r24, 0x01	; 1
+ 840:	21 f4       	brne	.+8      	; 0x84a <mode_3_Countdown+0x15c>
+{
+downcount_setting = 0; // 다운카운트세팅 해제
+ 842:	10 92 26 01 	sts	0x0126, r1
+sw6 = 0; // Button5 초기화
+ 846:	10 92 32 01 	sts	0x0132, r1
+}
+ 
+if (mode_sel != 3) // 모드를 바꿀 경우 바로 탈출
+ 84a:	80 91 39 01 	lds	r24, 0x0139
+ 84e:	83 30       	cpi	r24, 0x03	; 3
+ 850:	29 f0       	breq	.+10     	; 0x85c <mode_3_Countdown+0x16e>
+break;
+}
+ 
+if (down_m == 0 && down_s == 0)
+ 852:	80 91 3c 01 	lds	r24, 0x013C
+ 856:	88 23       	and	r24, r24
+ 858:	31 f0       	breq	.+12     	; 0x866 <mode_3_Countdown+0x178>
+ 85a:	32 c0       	rjmp	.+100    	; 0x8c0 <mode_3_Countdown+0x1d2>
+void mode_3_Countdown() // mode 3 함수
+{
+ 
+while (mode_state == 1) // mode_state값이 1일 때 실행
+{
+while (downcount_setting)
+ 85c:	80 91 26 01 	lds	r24, 0x0126
+ 860:	81 11       	cpse	r24, r1
+ 862:	52 cf       	rjmp	.-348    	; 0x708 <mode_3_Countdown+0x1a>
+ 864:	f6 cf       	rjmp	.-20     	; 0x852 <mode_3_Countdown+0x164>
+ 
+if (mode_sel != 3) // 모드를 바꿀 경우 바로 탈출
+break;
+}
+ 
+if (down_m == 0 && down_s == 0)
+ 866:	80 91 3d 01 	lds	r24, 0x013D
+ 86a:	88 23       	and	r24, r24
+ 86c:	09 f1       	breq	.+66     	; 0x8b0 <mode_3_Countdown+0x1c2>
+ 86e:	28 c0       	rjmp	.+80     	; 0x8c0 <mode_3_Countdown+0x1d2>
+{
+ 
+while (downcount_al_enable == 1)
+{
+OCR1A = 100;
+ 870:	3b bd       	out	0x2b, r19	; 43
+ 872:	2a bd       	out	0x2a, r18	; 42
+ 874:	9f ef       	ldi	r25, 0xFF	; 255
+ 876:	69 ef       	ldi	r22, 0xF9	; 249
+ 878:	80 e0       	ldi	r24, 0x00	; 0
+ 87a:	91 50       	subi	r25, 0x01	; 1
+ 87c:	60 40       	sbci	r22, 0x00	; 0
+ 87e:	80 40       	sbci	r24, 0x00	; 0
+ 880:	e1 f7       	brne	.-8      	; 0x87a <mode_3_Countdown+0x18c>
+ 882:	00 c0       	rjmp	.+0      	; 0x884 <mode_3_Countdown+0x196>
+ 884:	00 00       	nop
+_delay_ms(20); // 20ms마다 사운드크기 100으로 설정
+OCR1A = 255;
+ 886:	5b bd       	out	0x2b, r21	; 43
+ 888:	4a bd       	out	0x2a, r20	; 42
+ 88a:	9f ef       	ldi	r25, 0xFF	; 255
+ 88c:	69 ef       	ldi	r22, 0xF9	; 249
+ 88e:	80 e0       	ldi	r24, 0x00	; 0
+ 890:	91 50       	subi	r25, 0x01	; 1
+ 892:	60 40       	sbci	r22, 0x00	; 0
+ 894:	80 40       	sbci	r24, 0x00	; 0
+ 896:	e1 f7       	brne	.-8      	; 0x890 <mode_3_Countdown+0x1a2>
+ 898:	00 c0       	rjmp	.+0      	; 0x89a <mode_3_Countdown+0x1ac>
+ 89a:	00 00       	nop
+_delay_ms(20); // 20ms마다 사운드크기 255으로 설정
+if (sw3 == 1) // Button4를 눌렀을 경우
+ 89c:	80 91 33 01 	lds	r24, 0x0133
+ 8a0:	81 30       	cpi	r24, 0x01	; 1
+ 8a2:	31 f4       	brne	.+12     	; 0x8b0 <mode_3_Countdown+0x1c2>
+{
+end = 1;
+ 8a4:	80 93 15 01 	sts	0x0115, r24
+downcount_al_enable = 0;
+ 8a8:	10 92 14 01 	sts	0x0114, r1
+sw3 = 0; // Button4 초기화
+ 8ac:	10 92 33 01 	sts	0x0133, r1
+}
+ 
+if (down_m == 0 && down_s == 0)
+{
+ 
+while (downcount_al_enable == 1)
+ 8b0:	80 91 14 01 	lds	r24, 0x0114
+ 8b4:	81 30       	cpi	r24, 0x01	; 1
+ 8b6:	e1 f2       	breq	.-72     	; 0x870 <mode_3_Countdown+0x182>
+downcount_al_enable = 0;
+sw3 = 0; // Button4 초기화
+}
+}
+ 
+down_m = 0; // down_m 초기화
+ 8b8:	10 92 3c 01 	sts	0x013C, r1
+down_s = 0; // down_s 초기화
+ 8bc:	10 92 3d 01 	sts	0x013D, r1
+ 
+}
+ 
+if (STOP_FLAG == 0) // STOP_FLAG가 0일 때 실행 (한번만 실행)
+ 8c0:	80 91 45 01 	lds	r24, 0x0145
+ 8c4:	81 11       	cpse	r24, r1
+ 8c6:	08 c0       	rjmp	.+16     	; 0x8d8 <mode_3_Countdown+0x1ea>
+{
+STOP_FLAG2 = 1; // STOP_FLAG2에 1입력 ( 아래 if문 실행 위함)
+ 8c8:	d0 93 44 01 	sts	0x0144, r29
+ 
+down_ms = 0;
+ 8cc:	10 92 3b 01 	sts	0x013B, r1
+TCCR0 = 0x07; // 1024분주 선택
+ 8d0:	13 bf       	out	0x33, r17	; 51
+TCNT0 = 0x6C; // FF~6C 카운트(255-108=147), 1/(7.3728Mhz/ 1024prescaler) *147 = 0.02s마다 오버플로우 인터럽트
+ 8d2:	02 bf       	out	0x32, r16	; 50
+ 
+STOP_FLAG = 1; // STOP_FLAG 1입력 ( 두 번 실행 방지)
+ 8d4:	d0 93 45 01 	sts	0x0145, r29
+}
+ 
+TIMSK |= 0x01; // 타이머0의 출력비교 인터럽트 Enable
+ 8d8:	87 b7       	in	r24, 0x37	; 55
+ 8da:	81 60       	ori	r24, 0x01	; 1
+ 8dc:	87 bf       	out	0x37, r24	; 55
+ 
+print_FND_2bit(msec, down_s / 10, down_s % 10); // 1번째 ,2번째 Segment 출력
+ 8de:	80 91 3d 01 	lds	r24, 0x013D
+ 8e2:	6c 2f       	mov	r22, r28
+ 8e4:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 8e8:	a9 2f       	mov	r26, r25
+ 8ea:	b0 e0       	ldi	r27, 0x00	; 0
+ 8ec:	a6 5f       	subi	r26, 0xF6	; 246
+ 8ee:	be 4f       	sbci	r27, 0xFE	; 254
+ 8f0:	e8 2f       	mov	r30, r24
+ 8f2:	f0 e0       	ldi	r31, 0x00	; 0
+ 8f4:	e0 50       	subi	r30, 0x00	; 0
+ 8f6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 8f8:	8c 91       	ld	r24, X
+ 8fa:	90 81       	ld	r25, Z
+ 8fc:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 8fe:	85 bb       	out	0x15, r24	; 21
+ 900:	8f e9       	ldi	r24, 0x9F	; 159
+ 902:	9f e0       	ldi	r25, 0x0F	; 15
+ 904:	01 97       	sbiw	r24, 0x01	; 1
+ 906:	f1 f7       	brne	.-4      	; 0x904 <mode_3_Countdown+0x216>
+ 908:	00 c0       	rjmp	.+0      	; 0x90a <mode_3_Countdown+0x21c>
+ 90a:	00 00       	nop
+ 
+TIMSK |= 0x01; // 타이머0의 출력비교 인터럽트 Enable
+ 
+print_FND_2bit(msec, down_s / 10, down_s % 10); // 1번째 ,2번째 Segment 출력
+_delay_ms(1);
+print_FND_2bit(sec, down_m / 10, down_m % 10); // 3번째 ,4번째 Segment 출력
+ 90c:	80 91 3c 01 	lds	r24, 0x013C
+ 910:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 914:	a9 2f       	mov	r26, r25
+ 916:	b0 e0       	ldi	r27, 0x00	; 0
+ 918:	a6 5f       	subi	r26, 0xF6	; 246
+ 91a:	be 4f       	sbci	r27, 0xFE	; 254
+ 91c:	e8 2f       	mov	r30, r24
+ 91e:	f0 e0       	ldi	r31, 0x00	; 0
+ 920:	e0 50       	subi	r30, 0x00	; 0
+ 922:	ff 4f       	sbci	r31, 0xFF	; 255
+ 924:	8c 91       	ld	r24, X
+ 926:	90 81       	ld	r25, Z
+ 928:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 92a:	80 93 62 00 	sts	0x0062, r24
+ 92e:	8f e9       	ldi	r24, 0x9F	; 159
+ 930:	9f e0       	ldi	r25, 0x0F	; 15
+ 932:	01 97       	sbiw	r24, 0x01	; 1
+ 934:	f1 f7       	brne	.-4      	; 0x932 <mode_3_Countdown+0x244>
+ 936:	00 c0       	rjmp	.+0      	; 0x938 <mode_3_Countdown+0x24a>
+ 938:	00 00       	nop
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 93a:	e0 91 39 01 	lds	r30, 0x0139
+ 93e:	f0 e0       	ldi	r31, 0x00	; 0
+ 940:	e0 50       	subi	r30, 0x00	; 0
+ 942:	ff 4f       	sbci	r31, 0xFF	; 255
+ 944:	80 81       	ld	r24, Z
+ 946:	90 91 0b 01 	lds	r25, 0x010B
+ 94a:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 94c:	8b bb       	out	0x1b, r24	; 27
+ 94e:	8f e9       	ldi	r24, 0x9F	; 159
+ 950:	9f e0       	ldi	r25, 0x0F	; 15
+ 952:	01 97       	sbiw	r24, 0x01	; 1
+ 954:	f1 f7       	brne	.-4      	; 0x952 <mode_3_Countdown+0x264>
+ 956:	00 c0       	rjmp	.+0      	; 0x958 <mode_3_Countdown+0x26a>
+ 958:	00 00       	nop
+_delay_ms(1);
+print_FND_2bit(min, mode_sel, 1); // 5번째 Segment 출력
+_delay_ms(1);
+ 
+ 
+if (mode_sel != 3) // 모드를 바꿀 경우 바로 탈출
+ 95a:	80 91 39 01 	lds	r24, 0x0139
+ 95e:	83 30       	cpi	r24, 0x03	; 3
+ 960:	29 f0       	breq	.+10     	; 0x96c <mode_3_Countdown+0x27e>
+break;
+ 
+}
+ 
+if (STOP_FLAG2 == 1) // 위 루프에서 벗어날 때 실행
+ 962:	80 91 44 01 	lds	r24, 0x0144
+ 966:	81 30       	cpi	r24, 0x01	; 1
+ 968:	59 f4       	brne	.+22     	; 0x980 <mode_3_Countdown+0x292>
+ 96a:	06 c0       	rjmp	.+12     	; 0x978 <mode_3_Countdown+0x28a>
+ 
+ 
+void mode_3_Countdown() // mode 3 함수
+{
+ 
+while (mode_state == 1) // mode_state값이 1일 때 실행
+ 96c:	80 91 38 01 	lds	r24, 0x0138
+ 970:	81 30       	cpi	r24, 0x01	; 1
+ 972:	09 f4       	brne	.+2      	; 0x976 <mode_3_Countdown+0x288>
+ 974:	73 cf       	rjmp	.-282    	; 0x85c <mode_3_Countdown+0x16e>
+ 976:	f5 cf       	rjmp	.-22     	; 0x962 <mode_3_Countdown+0x274>
+ 
+}
+ 
+if (STOP_FLAG2 == 1) // 위 루프에서 벗어날 때 실행
+{
+STOP_FLAG = 0;
+ 978:	10 92 45 01 	sts	0x0145, r1
+STOP_FLAG2 = 0; // STOP_FLAG2 입력 ( 두 번 실행 방지)
+ 97c:	10 92 44 01 	sts	0x0144, r1
+} // 의미가?
+ 
+ 
+print_FND_2bit(msec, down_s / 10, down_s % 10); // 1번째 ,2번째 Segment 출력
+ 980:	80 91 3d 01 	lds	r24, 0x013D
+ 984:	2a e0       	ldi	r18, 0x0A	; 10
+ 986:	62 2f       	mov	r22, r18
+ 988:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 98c:	a9 2f       	mov	r26, r25
+ 98e:	b0 e0       	ldi	r27, 0x00	; 0
+ 990:	a6 5f       	subi	r26, 0xF6	; 246
+ 992:	be 4f       	sbci	r27, 0xFE	; 254
+ 994:	e8 2f       	mov	r30, r24
+ 996:	f0 e0       	ldi	r31, 0x00	; 0
+ 998:	e0 50       	subi	r30, 0x00	; 0
+ 99a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 99c:	8c 91       	ld	r24, X
+ 99e:	90 81       	ld	r25, Z
+ 9a0:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ 9a2:	85 bb       	out	0x15, r24	; 21
+ 9a4:	8f e9       	ldi	r24, 0x9F	; 159
+ 9a6:	9f e0       	ldi	r25, 0x0F	; 15
+ 9a8:	01 97       	sbiw	r24, 0x01	; 1
+ 9aa:	f1 f7       	brne	.-4      	; 0x9a8 <mode_3_Countdown+0x2ba>
+ 9ac:	00 c0       	rjmp	.+0      	; 0x9ae <mode_3_Countdown+0x2c0>
+ 9ae:	00 00       	nop
+} // 의미가?
+ 
+ 
+print_FND_2bit(msec, down_s / 10, down_s % 10); // 1번째 ,2번째 Segment 출력
+_delay_ms(1);
+print_FND_2bit(sec, down_m / 10, down_m % 10); // 3번째 ,4번째 Segment 출력
+ 9b0:	80 91 3c 01 	lds	r24, 0x013C
+ 9b4:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 9b8:	a9 2f       	mov	r26, r25
+ 9ba:	b0 e0       	ldi	r27, 0x00	; 0
+ 9bc:	a6 5f       	subi	r26, 0xF6	; 246
+ 9be:	be 4f       	sbci	r27, 0xFE	; 254
+ 9c0:	e8 2f       	mov	r30, r24
+ 9c2:	f0 e0       	ldi	r31, 0x00	; 0
+ 9c4:	e0 50       	subi	r30, 0x00	; 0
+ 9c6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 9c8:	8c 91       	ld	r24, X
+ 9ca:	90 81       	ld	r25, Z
+ 9cc:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ 9ce:	80 93 62 00 	sts	0x0062, r24
+ 9d2:	8f e9       	ldi	r24, 0x9F	; 159
+ 9d4:	9f e0       	ldi	r25, 0x0F	; 15
+ 9d6:	01 97       	sbiw	r24, 0x01	; 1
+ 9d8:	f1 f7       	brne	.-4      	; 0x9d6 <mode_3_Countdown+0x2e8>
+ 9da:	00 c0       	rjmp	.+0      	; 0x9dc <mode_3_Countdown+0x2ee>
+ 9dc:	00 00       	nop
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ 9de:	e0 91 39 01 	lds	r30, 0x0139
+ 9e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 9e4:	e0 50       	subi	r30, 0x00	; 0
+ 9e6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 9e8:	80 81       	ld	r24, Z
+ 9ea:	90 91 0a 01 	lds	r25, 0x010A
+ 9ee:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ 9f0:	8b bb       	out	0x1b, r24	; 27
+ 9f2:	8f e9       	ldi	r24, 0x9F	; 159
+ 9f4:	9f e0       	ldi	r25, 0x0F	; 15
+ 9f6:	01 97       	sbiw	r24, 0x01	; 1
+ 9f8:	f1 f7       	brne	.-4      	; 0x9f6 <mode_3_Countdown+0x308>
+ 9fa:	00 c0       	rjmp	.+0      	; 0x9fc <mode_3_Countdown+0x30e>
+ 9fc:	00 00       	nop
+print_FND_2bit(sec, down_m / 10, down_m % 10); // 3번째 ,4번째 Segment 출력
+_delay_ms(1);
+print_FND_2bit(min, mode_sel, 0); // 5번째 Segment 출력
+_delay_ms(1);
+ 
+}
+ 9fe:	df 91       	pop	r29
+ a00:	cf 91       	pop	r28
+ a02:	1f 91       	pop	r17
+ a04:	0f 91       	pop	r16
+ a06:	08 95       	ret
+
+00000a08 <mode_4_calculator>:
+ 
+void mode_4_calculator()// mode 4 함수
+{
+while (mode_state == 1) // mode state 값이 1일 때 실행
+{
+PORTG = 0xFF; // LED On
+ a08:	5f ef       	ldi	r21, 0xFF	; 255
+{
+FND_CNT = 0; // 0으로 돌아감
+}
+cal[FND_SEL_CNT] = FND_CNT;
+ 
+cal2[0] = cal[1] * 10 + cal[0]; // 1,2번째 Segment숫자 cal2[0] 저장
+ a0a:	4a e0       	ldi	r20, 0x0A	; 10
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+{
+while (mode_state == 1) // mode state 값이 1일 때 실행
+ a0c:	df c0       	rjmp	.+446    	; 0xbcc <mode_4_calculator+0x1c4>
+{
+PORTG = 0xFF; // LED On
+ a0e:	50 93 65 00 	sts	0x0065, r21
+ a12:	2f ef       	ldi	r18, 0xFF	; 255
+ a14:	30 e7       	ldi	r19, 0x70	; 112
+ a16:	92 e0       	ldi	r25, 0x02	; 2
+ a18:	21 50       	subi	r18, 0x01	; 1
+ a1a:	30 40       	sbci	r19, 0x00	; 0
+ a1c:	90 40       	sbci	r25, 0x00	; 0
+ a1e:	e1 f7       	brne	.-8      	; 0xa18 <mode_4_calculator+0x10>
+ a20:	00 c0       	rjmp	.+0      	; 0xa22 <mode_4_calculator+0x1a>
+ a22:	00 00       	nop
+_delay_ms(50);
+PORTG = 0x00; // LED Off ( 50ms마다 깜빡인다)
+ a24:	10 92 65 00 	sts	0x0065, r1
+ a28:	2f ef       	ldi	r18, 0xFF	; 255
+ a2a:	30 e7       	ldi	r19, 0x70	; 112
+ a2c:	92 e0       	ldi	r25, 0x02	; 2
+ a2e:	21 50       	subi	r18, 0x01	; 1
+ a30:	30 40       	sbci	r19, 0x00	; 0
+ a32:	90 40       	sbci	r25, 0x00	; 0
+ a34:	e1 f7       	brne	.-8      	; 0xa2e <mode_4_calculator+0x26>
+ a36:	00 c0       	rjmp	.+0      	; 0xa38 <mode_4_calculator+0x30>
+ a38:	00 00       	nop
+_delay_ms(50);
+ 
+if (STOP_FLAG == 0)
+ a3a:	90 91 45 01 	lds	r25, 0x0145
+ a3e:	91 11       	cpse	r25, r1
+ a40:	0c c0       	rjmp	.+24     	; 0xa5a <mode_4_calculator+0x52>
+{
+FND_SEL_CNT = 0;
+ a42:	10 92 31 01 	sts	0x0131, r1
+FND_CNT = cal[0];
+ a46:	90 91 1e 01 	lds	r25, 0x011E
+ a4a:	90 93 30 01 	sts	0x0130, r25
+cal2[3] = 0;
+ a4e:	10 92 1d 01 	sts	0x011D, r1
+ a52:	10 92 1c 01 	sts	0x011C, r1
+STOP_FLAG = 1;
+ a56:	80 93 45 01 	sts	0x0145, r24
+}
+ 
+if (sw2 == 1) // Button3을 눌렀을 경우 실행
+ a5a:	80 91 34 01 	lds	r24, 0x0134
+ a5e:	81 30       	cpi	r24, 0x01	; 1
+ a60:	b1 f4       	brne	.+44     	; 0xa8e <mode_4_calculator+0x86>
+{
+FND_SEL_CNT++; // 좌측 Segment로 이동
+ a62:	80 91 31 01 	lds	r24, 0x0131
+ a66:	8f 5f       	subi	r24, 0xFF	; 255
+if (FND_SEL_CNT > 3) // 4번째 Segment 이후
+ a68:	84 30       	cpi	r24, 0x04	; 4
+ a6a:	18 f4       	brcc	.+6      	; 0xa72 <mode_4_calculator+0x6a>
+STOP_FLAG = 1;
+}
+ 
+if (sw2 == 1) // Button3을 눌렀을 경우 실행
+{
+FND_SEL_CNT++; // 좌측 Segment로 이동
+ a6c:	80 93 31 01 	sts	0x0131, r24
+ a70:	02 c0       	rjmp	.+4      	; 0xa76 <mode_4_calculator+0x6e>
+if (FND_SEL_CNT > 3) // 4번째 Segment 이후
+{
+FND_SEL_CNT = 0; // 1번째 Segment로 돌아옴
+ a72:	10 92 31 01 	sts	0x0131, r1
+}
+sw2 = 0; // Button3 초기화
+ a76:	10 92 34 01 	sts	0x0134, r1
+FND_CNT = cal[FND_SEL_CNT]; // 다른 led를 선택하면 값을 0으로 초기화
+ a7a:	e0 91 31 01 	lds	r30, 0x0131
+ a7e:	f0 e0       	ldi	r31, 0x00	; 0
+ a80:	ee 0f       	add	r30, r30
+ a82:	ff 1f       	adc	r31, r31
+ a84:	e2 5e       	subi	r30, 0xE2	; 226
+ a86:	fe 4f       	sbci	r31, 0xFE	; 254
+ a88:	80 81       	ld	r24, Z
+ a8a:	80 93 30 01 	sts	0x0130, r24
+}
+ 
+if (sw3 == 1) // Button4를 눌렀을 경우 실행
+ a8e:	80 91 33 01 	lds	r24, 0x0133
+ a92:	81 30       	cpi	r24, 0x01	; 1
+ a94:	e9 f5       	brne	.+122    	; 0xb10 <mode_4_calculator+0x108>
+{
+FND_CNT++;// 선택된 Segment 숫자 증가
+ a96:	80 91 30 01 	lds	r24, 0x0130
+ a9a:	8f 5f       	subi	r24, 0xFF	; 255
+if (FND_CNT > 9) // Segment 숫자가 9를 넘어갈 경우
+ a9c:	8a 30       	cpi	r24, 0x0A	; 10
+ a9e:	18 f4       	brcc	.+6      	; 0xaa6 <mode_4_calculator+0x9e>
+FND_CNT = cal[FND_SEL_CNT]; // 다른 led를 선택하면 값을 0으로 초기화
+}
+ 
+if (sw3 == 1) // Button4를 눌렀을 경우 실행
+{
+FND_CNT++;// 선택된 Segment 숫자 증가
+ aa0:	80 93 30 01 	sts	0x0130, r24
+ aa4:	02 c0       	rjmp	.+4      	; 0xaaa <mode_4_calculator+0xa2>
+if (FND_CNT > 9) // Segment 숫자가 9를 넘어갈 경우
+{
+FND_CNT = 0; // 0으로 돌아감
+ aa6:	10 92 30 01 	sts	0x0130, r1
+}
+cal[FND_SEL_CNT] = FND_CNT;
+ aaa:	e0 91 31 01 	lds	r30, 0x0131
+ aae:	f0 e0       	ldi	r31, 0x00	; 0
+ ab0:	ee 0f       	add	r30, r30
+ ab2:	ff 1f       	adc	r31, r31
+ ab4:	e2 5e       	subi	r30, 0xE2	; 226
+ ab6:	fe 4f       	sbci	r31, 0xFE	; 254
+ ab8:	80 91 30 01 	lds	r24, 0x0130
+ abc:	80 83       	st	Z, r24
+ abe:	11 82       	std	Z+1, r1	; 0x01
+ 
+cal2[0] = cal[1] * 10 + cal[0]; // 1,2번째 Segment숫자 cal2[0] 저장
+ ac0:	20 91 20 01 	lds	r18, 0x0120
+ ac4:	30 91 21 01 	lds	r19, 0x0121
+ ac8:	42 9f       	mul	r20, r18
+ aca:	c0 01       	movw	r24, r0
+ acc:	43 9f       	mul	r20, r19
+ ace:	90 0d       	add	r25, r0
+ ad0:	11 24       	eor	r1, r1
+ ad2:	20 91 1e 01 	lds	r18, 0x011E
+ ad6:	30 91 1f 01 	lds	r19, 0x011F
+ ada:	82 0f       	add	r24, r18
+ adc:	93 1f       	adc	r25, r19
+ ade:	90 93 17 01 	sts	0x0117, r25
+ ae2:	80 93 16 01 	sts	0x0116, r24
+cal2[1] = cal[3] * 10 + cal[2]; // 3,4번째 Segment숫자 cal2[1] 저장
+ ae6:	20 91 24 01 	lds	r18, 0x0124
+ aea:	30 91 25 01 	lds	r19, 0x0125
+ aee:	42 9f       	mul	r20, r18
+ af0:	c0 01       	movw	r24, r0
+ af2:	43 9f       	mul	r20, r19
+ af4:	90 0d       	add	r25, r0
+ af6:	11 24       	eor	r1, r1
+ af8:	20 91 22 01 	lds	r18, 0x0122
+ afc:	30 91 23 01 	lds	r19, 0x0123
+ b00:	82 0f       	add	r24, r18
+ b02:	93 1f       	adc	r25, r19
+ b04:	90 93 19 01 	sts	0x0119, r25
+ b08:	80 93 18 01 	sts	0x0118, r24
+ 
+sw3 = 0; // Button4 초기화
+ b0c:	10 92 33 01 	sts	0x0133, r1
+}
+ 
+if (sw6 == 1) // Button5를 눌렀을 경우 실행
+ b10:	80 91 32 01 	lds	r24, 0x0132
+ b14:	81 30       	cpi	r24, 0x01	; 1
+ b16:	99 f4       	brne	.+38     	; 0xb3e <mode_4_calculator+0x136>
+{
+cal2[3]++; // 5번째 Segment 숫자 증가
+ b18:	80 91 1c 01 	lds	r24, 0x011C
+ b1c:	90 91 1d 01 	lds	r25, 0x011D
+ b20:	01 96       	adiw	r24, 0x01	; 1
+if (cal2[3] > 3) // 5번째 Segment숫자가 3을 넘길 경우
+ b22:	84 30       	cpi	r24, 0x04	; 4
+ b24:	91 05       	cpc	r25, r1
+ b26:	28 f4       	brcc	.+10     	; 0xb32 <mode_4_calculator+0x12a>
+sw3 = 0; // Button4 초기화
+}
+ 
+if (sw6 == 1) // Button5를 눌렀을 경우 실행
+{
+cal2[3]++; // 5번째 Segment 숫자 증가
+ b28:	90 93 1d 01 	sts	0x011D, r25
+ b2c:	80 93 1c 01 	sts	0x011C, r24
+ b30:	04 c0       	rjmp	.+8      	; 0xb3a <mode_4_calculator+0x132>
+if (cal2[3] > 3) // 5번째 Segment숫자가 3을 넘길 경우
+cal2[3] = 0; // 0으로 돌아감
+ b32:	10 92 1d 01 	sts	0x011D, r1
+ b36:	10 92 1c 01 	sts	0x011C, r1
+sw6 = 0; // Button5 초기화
+ b3a:	10 92 32 01 	sts	0x0132, r1
+ 
+}
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+ b3e:	a0 91 1e 01 	lds	r26, 0x011E
+ b42:	b0 91 1f 01 	lds	r27, 0x011F
+ b46:	bb 27       	eor	r27, r27
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ b48:	a6 5f       	subi	r26, 0xF6	; 246
+ b4a:	be 4f       	sbci	r27, 0xFE	; 254
+ 
+}
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+ b4c:	e0 91 20 01 	lds	r30, 0x0120
+ b50:	f0 91 21 01 	lds	r31, 0x0121
+ b54:	ff 27       	eor	r31, r31
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ b56:	e0 50       	subi	r30, 0x00	; 0
+ b58:	ff 4f       	sbci	r31, 0xFF	; 255
+ b5a:	8c 91       	ld	r24, X
+ b5c:	90 81       	ld	r25, Z
+ b5e:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ b60:	85 bb       	out	0x15, r24	; 21
+ b62:	8f e9       	ldi	r24, 0x9F	; 159
+ b64:	9f e0       	ldi	r25, 0x0F	; 15
+ b66:	01 97       	sbiw	r24, 0x01	; 1
+ b68:	f1 f7       	brne	.-4      	; 0xb66 <mode_4_calculator+0x15e>
+ b6a:	00 c0       	rjmp	.+0      	; 0xb6c <mode_4_calculator+0x164>
+ b6c:	00 00       	nop
+ 
+}
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+ b6e:	a0 91 22 01 	lds	r26, 0x0122
+ b72:	b0 91 23 01 	lds	r27, 0x0123
+ b76:	bb 27       	eor	r27, r27
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ b78:	a6 5f       	subi	r26, 0xF6	; 246
+ b7a:	be 4f       	sbci	r27, 0xFE	; 254
+ 
+}
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+ b7c:	e0 91 24 01 	lds	r30, 0x0124
+ b80:	f0 91 25 01 	lds	r31, 0x0125
+ b84:	ff 27       	eor	r31, r31
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ b86:	e0 50       	subi	r30, 0x00	; 0
+ b88:	ff 4f       	sbci	r31, 0xFF	; 255
+ b8a:	8c 91       	ld	r24, X
+ b8c:	90 81       	ld	r25, Z
+ b8e:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ b90:	80 93 62 00 	sts	0x0062, r24
+ b94:	8f e9       	ldi	r24, 0x9F	; 159
+ b96:	9f e0       	ldi	r25, 0x0F	; 15
+ b98:	01 97       	sbiw	r24, 0x01	; 1
+ b9a:	f1 f7       	brne	.-4      	; 0xb98 <mode_4_calculator+0x190>
+ b9c:	00 c0       	rjmp	.+0      	; 0xb9e <mode_4_calculator+0x196>
+ b9e:	00 00       	nop
+ 
+}
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+ ba0:	e0 91 1c 01 	lds	r30, 0x011C
+ ba4:	f0 91 1d 01 	lds	r31, 0x011D
+ ba8:	ff 27       	eor	r31, r31
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ baa:	e6 5f       	subi	r30, 0xF6	; 246
+ bac:	fe 4f       	sbci	r31, 0xFE	; 254
+ bae:	a0 91 39 01 	lds	r26, 0x0139
+ bb2:	b0 e0       	ldi	r27, 0x00	; 0
+ bb4:	a0 50       	subi	r26, 0x00	; 0
+ bb6:	bf 4f       	sbci	r27, 0xFF	; 255
+ bb8:	80 81       	ld	r24, Z
+ bba:	9c 91       	ld	r25, X
+ bbc:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ bbe:	8b bb       	out	0x1b, r24	; 27
+ bc0:	8f e9       	ldi	r24, 0x9F	; 159
+ bc2:	9f e0       	ldi	r25, 0x0F	; 15
+ bc4:	01 97       	sbiw	r24, 0x01	; 1
+ bc6:	f1 f7       	brne	.-4      	; 0xbc4 <mode_4_calculator+0x1bc>
+ bc8:	00 c0       	rjmp	.+0      	; 0xbca <mode_4_calculator+0x1c2>
+ bca:	00 00       	nop
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+{
+while (mode_state == 1) // mode state 값이 1일 때 실행
+ bcc:	80 91 38 01 	lds	r24, 0x0138
+ bd0:	81 30       	cpi	r24, 0x01	; 1
+ bd2:	09 f4       	brne	.+2      	; 0xbd6 <mode_4_calculator+0x1ce>
+ bd4:	1c cf       	rjmp	.-456    	; 0xa0e <mode_4_calculator+0x6>
+_delay_ms(1);
+print_FND_2bit(min, mode_sel, cal2[3]); // 5번째 Segment에 출력
+_delay_ms(1);
+}
+ 
+if (sw6 == 1) // Button6을 눌렀을 경우 실행
+ bd6:	80 91 32 01 	lds	r24, 0x0132
+ bda:	81 30       	cpi	r24, 0x01	; 1
+ bdc:	09 f0       	breq	.+2      	; 0xbe0 <mode_4_calculator+0x1d8>
+ bde:	9f c0       	rjmp	.+318    	; 0xd1e <mode_4_calculator+0x316>
+{
+switch (cal2[3])
+ be0:	80 91 1c 01 	lds	r24, 0x011C
+ be4:	90 91 1d 01 	lds	r25, 0x011D
+ be8:	81 30       	cpi	r24, 0x01	; 1
+ bea:	91 05       	cpc	r25, r1
+ bec:	91 f0       	breq	.+36     	; 0xc12 <mode_4_calculator+0x20a>
+ bee:	30 f0       	brcs	.+12     	; 0xbfc <mode_4_calculator+0x1f4>
+ bf0:	82 30       	cpi	r24, 0x02	; 2
+ bf2:	91 05       	cpc	r25, r1
+ bf4:	e9 f0       	breq	.+58     	; 0xc30 <mode_4_calculator+0x228>
+ bf6:	03 97       	sbiw	r24, 0x03	; 3
+ bf8:	c9 f5       	brne	.+114    	; 0xc6c <mode_4_calculator+0x264>
+ bfa:	2a c0       	rjmp	.+84     	; 0xc50 <mode_4_calculator+0x248>
+{
+case 0:
+cal2[2] = cal2[1] + cal2[0]; // 더하기 진행
+ bfc:	80 91 16 01 	lds	r24, 0x0116
+ c00:	90 91 17 01 	lds	r25, 0x0117
+ c04:	20 91 18 01 	lds	r18, 0x0118
+ c08:	30 91 19 01 	lds	r19, 0x0119
+ c0c:	82 0f       	add	r24, r18
+ c0e:	93 1f       	adc	r25, r19
+ c10:	0a c0       	rjmp	.+20     	; 0xc26 <mode_4_calculator+0x21e>
+break;
+ 
+case 1:
+cal2[2] = cal2[1] - cal2[0]; // 빼기 진행
+ c12:	80 91 18 01 	lds	r24, 0x0118
+ c16:	90 91 19 01 	lds	r25, 0x0119
+ c1a:	20 91 16 01 	lds	r18, 0x0116
+ c1e:	30 91 17 01 	lds	r19, 0x0117
+ c22:	82 1b       	sub	r24, r18
+ c24:	93 0b       	sbc	r25, r19
+ c26:	90 93 1b 01 	sts	0x011B, r25
+ c2a:	80 93 1a 01 	sts	0x011A, r24
+break;
+ c2e:	1e c0       	rjmp	.+60     	; 0xc6c <mode_4_calculator+0x264>
+ 
+case 2:
+cal2[2] = cal2[1] * cal2[0]; // 곱하기 진행
+ c30:	40 91 16 01 	lds	r20, 0x0116
+ c34:	50 91 17 01 	lds	r21, 0x0117
+ c38:	20 91 18 01 	lds	r18, 0x0118
+ c3c:	30 91 19 01 	lds	r19, 0x0119
+ c40:	42 9f       	mul	r20, r18
+ c42:	c0 01       	movw	r24, r0
+ c44:	43 9f       	mul	r20, r19
+ c46:	90 0d       	add	r25, r0
+ c48:	52 9f       	mul	r21, r18
+ c4a:	90 0d       	add	r25, r0
+ c4c:	11 24       	eor	r1, r1
+ c4e:	eb cf       	rjmp	.-42     	; 0xc26 <mode_4_calculator+0x21e>
+break;
+ 
+case 3:
+cal2[2] = cal2[1] / cal2[0]; // 나누기 진행 (나머지 버림)
+ c50:	80 91 18 01 	lds	r24, 0x0118
+ c54:	90 91 19 01 	lds	r25, 0x0119
+ c58:	60 91 16 01 	lds	r22, 0x0116
+ c5c:	70 91 17 01 	lds	r23, 0x0117
+ c60:	0e 94 bd 07 	call	0xf7a	; 0xf7a <__udivmodhi4>
+ c64:	70 93 1b 01 	sts	0x011B, r23
+ c68:	60 93 1a 01 	sts	0x011A, r22
+break;
+default :
+break;
+}
+STOP_FLAG = 0;
+ c6c:	10 92 45 01 	sts	0x0145, r1
+cal2[3] = 4; // 계산 완료 시에 5번째 Segment를 4로 설정
+ c70:	84 e0       	ldi	r24, 0x04	; 4
+ c72:	90 e0       	ldi	r25, 0x00	; 0
+ c74:	90 93 1d 01 	sts	0x011D, r25
+ c78:	80 93 1c 01 	sts	0x011C, r24
+STOP_FLAG = 0;
+i = cal2[2] % 100; // 계산된 값의 십의자리숫자와 일의자리 숫자
+ c7c:	80 91 1a 01 	lds	r24, 0x011A
+ c80:	90 91 1b 01 	lds	r25, 0x011B
+ c84:	64 e6       	ldi	r22, 0x64	; 100
+ c86:	70 e0       	ldi	r23, 0x00	; 0
+ c88:	0e 94 bd 07 	call	0xf7a	; 0xf7a <__udivmodhi4>
+ c8c:	80 93 2a 01 	sts	0x012A, r24
+j = cal2[2] / 100; // 계산된 값의 천의자리숫자와 백의자리 숫자
+ c90:	60 93 29 01 	sts	0x0129, r22
+print_FND_2bit(msec, i / 10, i % 10); // 십의자리 숫자, 일의자리 숫자 출력
+ c94:	2a e0       	ldi	r18, 0x0A	; 10
+ c96:	62 2f       	mov	r22, r18
+ c98:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ c9c:	a9 2f       	mov	r26, r25
+ c9e:	b0 e0       	ldi	r27, 0x00	; 0
+ ca0:	a6 5f       	subi	r26, 0xF6	; 246
+ ca2:	be 4f       	sbci	r27, 0xFE	; 254
+ ca4:	e8 2f       	mov	r30, r24
+ ca6:	f0 e0       	ldi	r31, 0x00	; 0
+ ca8:	e0 50       	subi	r30, 0x00	; 0
+ caa:	ff 4f       	sbci	r31, 0xFF	; 255
+ cac:	8c 91       	ld	r24, X
+ cae:	90 81       	ld	r25, Z
+ cb0:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ cb2:	85 bb       	out	0x15, r24	; 21
+ cb4:	8f e9       	ldi	r24, 0x9F	; 159
+ cb6:	9f e0       	ldi	r25, 0x0F	; 15
+ cb8:	01 97       	sbiw	r24, 0x01	; 1
+ cba:	f1 f7       	brne	.-4      	; 0xcb8 <mode_4_calculator+0x2b0>
+ cbc:	00 c0       	rjmp	.+0      	; 0xcbe <mode_4_calculator+0x2b6>
+ cbe:	00 00       	nop
+STOP_FLAG = 0;
+i = cal2[2] % 100; // 계산된 값의 십의자리숫자와 일의자리 숫자
+j = cal2[2] / 100; // 계산된 값의 천의자리숫자와 백의자리 숫자
+print_FND_2bit(msec, i / 10, i % 10); // 십의자리 숫자, 일의자리 숫자 출력
+_delay_ms(1);
+print_FND_2bit(sec, j / 10, j % 10); // 천의자리 숫자, 백의자리 숫자 출력
+ cc0:	80 91 29 01 	lds	r24, 0x0129
+ cc4:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ cc8:	a9 2f       	mov	r26, r25
+ cca:	b0 e0       	ldi	r27, 0x00	; 0
+ ccc:	a6 5f       	subi	r26, 0xF6	; 246
+ cce:	be 4f       	sbci	r27, 0xFE	; 254
+ cd0:	e8 2f       	mov	r30, r24
+ cd2:	f0 e0       	ldi	r31, 0x00	; 0
+ cd4:	e0 50       	subi	r30, 0x00	; 0
+ cd6:	ff 4f       	sbci	r31, 0xFF	; 255
+ cd8:	8c 91       	ld	r24, X
+ cda:	90 81       	ld	r25, Z
+ cdc:	89 2b       	or	r24, r25
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ cde:	80 93 62 00 	sts	0x0062, r24
+ ce2:	8f e9       	ldi	r24, 0x9F	; 159
+ ce4:	9f e0       	ldi	r25, 0x0F	; 15
+ ce6:	01 97       	sbiw	r24, 0x01	; 1
+ ce8:	f1 f7       	brne	.-4      	; 0xce6 <mode_4_calculator+0x2de>
+ cea:	00 c0       	rjmp	.+0      	; 0xcec <mode_4_calculator+0x2e4>
+ cec:	00 00       	nop
+ 
+}
+ 
+ 
+ 
+void mode_4_calculator()// mode 4 함수
+ cee:	e0 91 1c 01 	lds	r30, 0x011C
+ cf2:	f0 91 1d 01 	lds	r31, 0x011D
+ cf6:	ff 27       	eor	r31, r31
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ cf8:	e6 5f       	subi	r30, 0xF6	; 246
+ cfa:	fe 4f       	sbci	r31, 0xFE	; 254
+ cfc:	a0 91 39 01 	lds	r26, 0x0139
+ d00:	b0 e0       	ldi	r27, 0x00	; 0
+ d02:	a0 50       	subi	r26, 0x00	; 0
+ d04:	bf 4f       	sbci	r27, 0xFF	; 255
+ d06:	80 81       	ld	r24, Z
+ d08:	9c 91       	ld	r25, X
+ d0a:	89 2b       	or	r24, r25
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ d0c:	8b bb       	out	0x1b, r24	; 27
+ d0e:	8f e9       	ldi	r24, 0x9F	; 159
+ d10:	9f e0       	ldi	r25, 0x0F	; 15
+ d12:	01 97       	sbiw	r24, 0x01	; 1
+ d14:	f1 f7       	brne	.-4      	; 0xd12 <mode_4_calculator+0x30a>
+ d16:	00 c0       	rjmp	.+0      	; 0xd18 <mode_4_calculator+0x310>
+ d18:	00 00       	nop
+_delay_ms(1);
+print_FND_2bit(sec, j / 10, j % 10); // 천의자리 숫자, 백의자리 숫자 출력
+_delay_ms(1);
+print_FND_2bit(min, mode_sel, cal2[3]); // 5번째 Segment에 4 출력
+_delay_ms(1);
+sw6 = 0; // Button5 초기화
+ d1a:	10 92 32 01 	sts	0x0132, r1
+ d1e:	08 95       	ret
+
+00000d20 <timer0Countdown>:
+}
+ 
+ 
+ 
+void timer0Countdown()
+{
+ d20:	08 95       	ret
+
+00000d22 <timer0Countup>:
+}
+ 
+ 
+void timer0Countup() //time_ms++; 이부분은 timer0 overflow interrupt service routine에 있음
+{
+if (mode_sel == 1){
+ d22:	80 91 39 01 	lds	r24, 0x0139
+ d26:	81 30       	cpi	r24, 0x01	; 1
+ d28:	e1 f4       	brne	.+56     	; 0xd62 <timer0Countup+0x40>
+if (stop_ms >= 99)
+ d2a:	80 91 40 01 	lds	r24, 0x0140
+ d2e:	83 36       	cpi	r24, 0x63	; 99
+ d30:	b0 f1       	brcs	.+108    	; 0xd9e <timer0Countup+0x7c>
+{
+if (stop_s >= 59)
+ d32:	80 91 3f 01 	lds	r24, 0x013F
+ d36:	8b 33       	cpi	r24, 0x3B	; 59
+ d38:	40 f0       	brcs	.+16     	; 0xd4a <timer0Countup+0x28>
+{
+stop_m++;
+ d3a:	80 91 3e 01 	lds	r24, 0x013E
+ d3e:	8f 5f       	subi	r24, 0xFF	; 255
+ d40:	80 93 3e 01 	sts	0x013E, r24
+stop_s = 0;
+ d44:	10 92 3f 01 	sts	0x013F, r1
+ d48:	03 c0       	rjmp	.+6      	; 0xd50 <timer0Countup+0x2e>
+}
+else
+stop_s++;
+ d4a:	8f 5f       	subi	r24, 0xFF	; 255
+ d4c:	80 93 3f 01 	sts	0x013F, r24
+ 
+if (stop_m > 59)
+ d50:	80 91 3e 01 	lds	r24, 0x013E
+ d54:	8c 33       	cpi	r24, 0x3C	; 60
+ d56:	10 f0       	brcs	.+4      	; 0xd5c <timer0Countup+0x3a>
+{
+stop_m = 0;
+ d58:	10 92 3e 01 	sts	0x013E, r1
+}
+ 
+stop_ms = 0;
+ d5c:	10 92 40 01 	sts	0x0140, r1
+ d60:	08 95       	ret
+}
+}
+else if(mode_sel == 3 && downcount_setting == 0&&end == 0){
+ d62:	83 30       	cpi	r24, 0x03	; 3
+ d64:	e1 f4       	brne	.+56     	; 0xd9e <timer0Countup+0x7c>
+ d66:	80 91 26 01 	lds	r24, 0x0126
+ d6a:	81 11       	cpse	r24, r1
+ d6c:	18 c0       	rjmp	.+48     	; 0xd9e <timer0Countup+0x7c>
+ d6e:	80 91 15 01 	lds	r24, 0x0115
+ d72:	81 11       	cpse	r24, r1
+ d74:	14 c0       	rjmp	.+40     	; 0xd9e <timer0Countup+0x7c>
+if (down_ms >= 99){
+ d76:	80 91 3b 01 	lds	r24, 0x013B
+ d7a:	83 36       	cpi	r24, 0x63	; 99
+ d7c:	80 f0       	brcs	.+32     	; 0xd9e <timer0Countup+0x7c>
+if (down_s == 0)
+ d7e:	80 91 3d 01 	lds	r24, 0x013D
+ d82:	81 11       	cpse	r24, r1
+ d84:	07 c0       	rjmp	.+14     	; 0xd94 <timer0Countup+0x72>
+{
+down_m--; // m에서 1을 빌려와서 s를 59로 채움
+ d86:	80 91 3c 01 	lds	r24, 0x013C
+ d8a:	81 50       	subi	r24, 0x01	; 1
+ d8c:	80 93 3c 01 	sts	0x013C, r24
+down_s = 59;
+ d90:	8b e3       	ldi	r24, 0x3B	; 59
+ d92:	01 c0       	rjmp	.+2      	; 0xd96 <timer0Countup+0x74>
+}
+else
+down_s--;
+ d94:	81 50       	subi	r24, 0x01	; 1
+ d96:	80 93 3d 01 	sts	0x013D, r24
+
+down_ms = 0;
+ d9a:	10 92 3b 01 	sts	0x013B, r1
+ d9e:	08 95       	ret
+
+00000da0 <__vector_16>:
+ 
+ 
+ 
+ 
+ISR(TIMER0_OVF_vect) // 모드1,3에서 사용
+{
+ da0:	1f 92       	push	r1
+ da2:	0f 92       	push	r0
+ da4:	0f b6       	in	r0, 0x3f	; 63
+ da6:	0f 92       	push	r0
+ da8:	11 24       	eor	r1, r1
+ daa:	0b b6       	in	r0, 0x3b	; 59
+ dac:	0f 92       	push	r0
+ dae:	2f 93       	push	r18
+ db0:	3f 93       	push	r19
+ db2:	4f 93       	push	r20
+ db4:	5f 93       	push	r21
+ db6:	6f 93       	push	r22
+ db8:	7f 93       	push	r23
+ dba:	8f 93       	push	r24
+ dbc:	9f 93       	push	r25
+ dbe:	af 93       	push	r26
+ dc0:	bf 93       	push	r27
+ dc2:	ef 93       	push	r30
+ dc4:	ff 93       	push	r31
+cli(); // 인터럽트 중지
+ dc6:	f8 94       	cli
+TCNT0 = 0x6C; // FF~6C 카운트(255-108=147), 1/(7.3728Mhz/1024prescaler)*147 = 0.02s마다 오버플로우 인터럽트
+ dc8:	8c e6       	ldi	r24, 0x6C	; 108
+ dca:	82 bf       	out	0x32, r24	; 50
+down_ms++; // stop_ms 1씩 증가(모드1에서 사용)
+ dcc:	80 91 3b 01 	lds	r24, 0x013B
+ dd0:	8f 5f       	subi	r24, 0xFF	; 255
+ dd2:	80 93 3b 01 	sts	0x013B, r24
+stop_ms++; // down_ms 1씩 증가(모드3에서 사용)
+ dd6:	80 91 40 01 	lds	r24, 0x0140
+ dda:	8f 5f       	subi	r24, 0xFF	; 255
+ ddc:	80 93 40 01 	sts	0x0140, r24
+timer0Countup();//!!!!!
+ de0:	0e 94 91 06 	call	0xd22	; 0xd22 <timer0Countup>
+ 
+ 
+sei(); // 인터럽트 작동
+ de4:	78 94       	sei
+}
+ de6:	ff 91       	pop	r31
+ de8:	ef 91       	pop	r30
+ dea:	bf 91       	pop	r27
+ dec:	af 91       	pop	r26
+ dee:	9f 91       	pop	r25
+ df0:	8f 91       	pop	r24
+ df2:	7f 91       	pop	r23
+ df4:	6f 91       	pop	r22
+ df6:	5f 91       	pop	r21
+ df8:	4f 91       	pop	r20
+ dfa:	3f 91       	pop	r19
+ dfc:	2f 91       	pop	r18
+ dfe:	0f 90       	pop	r0
+ e00:	0b be       	out	0x3b, r0	; 59
+ e02:	0f 90       	pop	r0
+ e04:	0f be       	out	0x3f, r0	; 63
+ e06:	0f 90       	pop	r0
+ e08:	1f 90       	pop	r1
+ e0a:	18 95       	reti
+
+00000e0c <main>:
+ISR(INT6_vect);
+ 
+ 
+int main()
+{
+DDRA = 0xFF; // 포트 A를 출력포트로 사용 (0~7비트 모두 사용)
+ e0c:	8f ef       	ldi	r24, 0xFF	; 255
+ e0e:	8a bb       	out	0x1a, r24	; 26
+DDRF = 0xFF; // 포트 F를 출력포트로 사용 (0~7비트 모두 사용)
+ e10:	80 93 61 00 	sts	0x0061, r24
+DDRC = 0xFF; // 포트 C를 출력포트로 사용 (0~7비트 모두 사용)
+ e14:	84 bb       	out	0x14, r24	; 20
+DDRB = 0xFF; // 포트 B를 출력포트로 사용 (0~7비트 모두 사용)
+ e16:	87 bb       	out	0x17, r24	; 23
+DDRG = 0xFF; // 포트 G를 출력포트로 사용 (0~7비트 모두 사용)
+ e18:	80 93 64 00 	sts	0x0064, r24
+ 
+DDRE = 0x00; // 포트 E를 입력포트로 사용 (0~7비트 모두 사용)
+ e1c:	12 b8       	out	0x02, r1	; 2
+DDRD = 0x00; // 포트 D를 입력포트로 사용 (0~7비트 모두 사용)
+ e1e:	11 ba       	out	0x11, r1	; 17
+ 
+PORTG = 0x00; // 포트 G 초기화
+ e20:	10 92 65 00 	sts	0x0065, r1
+PORTE = 0x00; // 포트 E 초기화
+ e24:	13 b8       	out	0x03, r1	; 3
+PORTB = 0xFF; // 포트 B 초기화
+ e26:	88 bb       	out	0x18, r24	; 24
+ 
+EICRA = 0xAA; // INT0,1,2,3의 하강 엣지에서 인터럽트 발생
+ e28:	8a ea       	ldi	r24, 0xAA	; 170
+ e2a:	80 93 6a 00 	sts	0x006A, r24
+EICRB = 0x20; // INT6의 하강 엣지에서 인터럽트 발생
+ e2e:	80 e2       	ldi	r24, 0x20	; 32
+ e30:	8a bf       	out	0x3a, r24	; 58
+EIMSK = 0x4F; // INT0,1,2,3,6 사용
+ e32:	8f e4       	ldi	r24, 0x4F	; 79
+ e34:	89 bf       	out	0x39, r24	; 57
+EIFR = 0x00; // 외부 인터럽트가 요청된 경우 1로 세팅
+ e36:	18 be       	out	0x38, r1	; 56
+ 
+TCCR3A = 0x00; // normal포트 동작, OCnA/OCnB/OCnC분리
+ e38:	10 92 8b 00 	sts	0x008B, r1
+TCCR3B = 0x02; // 하강엣지로 검출되며 8분주
+ e3c:	82 e0       	ldi	r24, 0x02	; 2
+ e3e:	80 93 8a 00 	sts	0x008A, r24
+TCCR3C = 0x00; // Force Output Compare를 설정 ( 불필요)
+ e42:	10 92 8c 00 	sts	0x008C, r1
+TCNT3 = 0x4E20; //0100 1110 0010 0000 값 저장
+ e46:	80 e2       	ldi	r24, 0x20	; 32
+ e48:	9e e4       	ldi	r25, 0x4E	; 78
+ e4a:	90 93 89 00 	sts	0x0089, r25
+ e4e:	80 93 88 00 	sts	0x0088, r24
+ 
+TCCR1A = 0xC1; //1100 0001 Set OCnA on compare match(high level에서 출력)
+ e52:	81 ec       	ldi	r24, 0xC1	; 193
+ e54:	8f bd       	out	0x2f, r24	; 47
+TCCR1B = 0x03; // 하강엣지로 검출되면 64분주
+ e56:	83 e0       	ldi	r24, 0x03	; 3
+ e58:	8e bd       	out	0x2e, r24	; 46
+TCCR1C = 0x00; // Force Output Compare를 설정 ( 불필요)
+ e5a:	10 92 7a 00 	sts	0x007A, r1
+TCNT1 = 0; // 0000 0000 0000 0000 값 저장
+ e5e:	1d bc       	out	0x2d, r1	; 45
+ e60:	1c bc       	out	0x2c, r1	; 44
+TIMSK = 0x00; // 인터럽트 개별적으로 Enable 하지 않음
+ e62:	17 be       	out	0x37, r1	; 55
+ETIMSK = 0x04; // 타이머3의 오버플로우 인터럽트를 개별적으로 Enable
+ e64:	84 e0       	ldi	r24, 0x04	; 4
+ e66:	80 93 7d 00 	sts	0x007D, r24
+TIFR = 0x01; // 오버플로우 작동 인터럽트 동작(자동으로 Clear)
+ e6a:	91 e0       	ldi	r25, 0x01	; 1
+ e6c:	96 bf       	out	0x36, r25	; 54
+ETIFR = 0x04;// 오버플로우가 발생하면 TOV3가 1로 되면서 오버플로우 인터럽트 발생
+ e6e:	80 93 7c 00 	sts	0x007C, r24
+}
+// ISR 설정 이유?
+ 
+void print_FND_2bit(unsigned char time_type, unsigned char upper_data, unsigned char lower_data) // 6segment에 입력된 숫자 출력하는 함수
+{
+unsigned char data = FND_BCD_TBL_H[upper_data] | FND_BCD_TBL[lower_data]; // data에 10의 자리 수에 16진수 숫자, 1의 자리 수에 10진수 숫자 저장
+ e72:	80 91 0a 01 	lds	r24, 0x010A
+ e76:	90 91 00 01 	lds	r25, 0x0100
+ e7a:	89 2b       	or	r24, r25
+ 
+switch (time_type) // 출력할 Segment를 선택
+{
+case msec:
+PORTC = data; // data값을 PORTC에 출력
+ e7c:	85 bb       	out	0x15, r24	; 21
+break;
+case sec:
+PORTF = data; // data값을 PORTF에 출력
+ e7e:	80 93 62 00 	sts	0x0062, r24
+break;
+case min:
+PORTA = data; // data값을 PORTA에 출력
+ e82:	8b bb       	out	0x1b, r24	; 27
+ 
+print_FND_2bit(msec, 0, 0); // msec 00으로 세팅
+print_FND_2bit(sec, 0, 0); // sec 00으로 세팅
+print_FND_2bit(min, 0, 0); // min 00으로 세팅 ( 시작 시간을 00:00:00으로 세팅)
+ 
+sei();
+ e84:	78 94       	sei
+ 
+while (1)
+{
+OCR1A = 255; // OCR1A에 255값 입력한다. (초기 사운드 세팅)
+ e86:	cf ef       	ldi	r28, 0xFF	; 255
+ e88:	d0 e0       	ldi	r29, 0x00	; 0
+default:
+mode_0_Basic_Clock();
+break; // 그 외 값일 때 모드1로 실행
+}
+ 
+if (al_enable == 1 && FND_DATA[0] == time_ms % 10 && FND_DATA[1] == time_ms / 10 && FND_DATA[2] == time_s % 10 && FND_DATA[3] == time_s / 10 && FND_DATA[4] == time_m) //알람 기능이 On이고 저장된 시간과 현재 시간이 일치할 경우
+ e8a:	2a e0       	ldi	r18, 0x0A	; 10
+ e8c:	f2 2e       	mov	r15, r18
+{
+sw1 = 0;
+while (al_enable == 1) // 알람 실행시
+{
+OCR1A = 100; // 20ms마다 사운드크기 100으로 설정
+ e8e:	04 e6       	ldi	r16, 0x64	; 100
+ e90:	10 e0       	ldi	r17, 0x00	; 0
+ 
+sei();
+ 
+while (1)
+{
+OCR1A = 255; // OCR1A에 255값 입력한다. (초기 사운드 세팅)
+ e92:	db bd       	out	0x2b, r29	; 43
+ e94:	ca bd       	out	0x2a, r28	; 42
+ 
+switch (mode_sel) // mode_sel 값에 따라 모드변경
+ e96:	80 91 39 01 	lds	r24, 0x0139
+ e9a:	82 30       	cpi	r24, 0x02	; 2
+ e9c:	71 f0       	breq	.+28     	; 0xeba <main+0xae>
+ e9e:	28 f4       	brcc	.+10     	; 0xeaa <main+0x9e>
+ ea0:	88 23       	and	r24, r24
+ ea2:	a1 f0       	breq	.+40     	; 0xecc <main+0xc0>
+ ea4:	81 30       	cpi	r24, 0x01	; 1
+ ea6:	91 f4       	brne	.+36     	; 0xecc <main+0xc0>
+ ea8:	05 c0       	rjmp	.+10     	; 0xeb4 <main+0xa8>
+ eaa:	83 30       	cpi	r24, 0x03	; 3
+ eac:	49 f0       	breq	.+18     	; 0xec0 <main+0xb4>
+ eae:	84 30       	cpi	r24, 0x04	; 4
+ eb0:	69 f4       	brne	.+26     	; 0xecc <main+0xc0>
+ eb2:	09 c0       	rjmp	.+18     	; 0xec6 <main+0xba>
+{
+case 0:
+mode_0_Basic_Clock(); // 0일 때 모드0으로 실행
+break;
+case 1:
+mode_1_Stop_Watch(); // 1일 때 모드1로 실행
+ eb4:	0e 94 96 01 	call	0x32c	; 0x32c <mode_1_Stop_Watch>
+break;
+ eb8:	0b c0       	rjmp	.+22     	; 0xed0 <main+0xc4>
+case 2:
+mode_2_Alarm(); // 2일 때 모드2로 실행
+ eba:	0e 94 c6 02 	call	0x58c	; 0x58c <mode_2_Alarm>
+break;
+ ebe:	08 c0       	rjmp	.+16     	; 0xed0 <main+0xc4>
+case 3:
+mode_3_Countdown(); // 3일 때 모드3으로 실행
+ ec0:	0e 94 77 03 	call	0x6ee	; 0x6ee <mode_3_Countdown>
+break;
+ ec4:	05 c0       	rjmp	.+10     	; 0xed0 <main+0xc4>
+case 4:
+mode_4_calculator(); // 4일 때 모드4로 실행
+ ec6:	0e 94 04 05 	call	0xa08	; 0xa08 <mode_4_calculator>
+break;
+ eca:	02 c0       	rjmp	.+4      	; 0xed0 <main+0xc4>
+default:
+mode_0_Basic_Clock();
+ ecc:	0e 94 50 01 	call	0x2a0	; 0x2a0 <mode_0_Basic_Clock>
+break; // 그 외 값일 때 모드1로 실행
+}
+ 
+if (al_enable == 1 && FND_DATA[0] == time_ms % 10 && FND_DATA[1] == time_ms / 10 && FND_DATA[2] == time_s % 10 && FND_DATA[3] == time_s / 10 && FND_DATA[4] == time_m) //알람 기능이 On이고 저장된 시간과 현재 시간이 일치할 경우
+ ed0:	80 91 37 01 	lds	r24, 0x0137
+ ed4:	81 30       	cpi	r24, 0x01	; 1
+ ed6:	e9 f6       	brne	.-70     	; 0xe92 <main+0x86>
+ ed8:	80 91 43 01 	lds	r24, 0x0143
+ edc:	6f 2d       	mov	r22, r15
+ ede:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ ee2:	20 91 5c 01 	lds	r18, 0x015C
+ ee6:	29 13       	cpse	r18, r25
+ ee8:	d4 cf       	rjmp	.-88     	; 0xe92 <main+0x86>
+ eea:	90 91 5d 01 	lds	r25, 0x015D
+ eee:	98 13       	cpse	r25, r24
+ ef0:	d0 cf       	rjmp	.-96     	; 0xe92 <main+0x86>
+ ef2:	80 91 42 01 	lds	r24, 0x0142
+ ef6:	0e 94 b1 07 	call	0xf62	; 0xf62 <__udivmodqi4>
+ efa:	20 91 5e 01 	lds	r18, 0x015E
+ efe:	29 13       	cpse	r18, r25
+ f00:	c8 cf       	rjmp	.-112    	; 0xe92 <main+0x86>
+ f02:	90 91 5f 01 	lds	r25, 0x015F
+ f06:	98 13       	cpse	r25, r24
+ f08:	c4 cf       	rjmp	.-120    	; 0xe92 <main+0x86>
+ f0a:	90 91 60 01 	lds	r25, 0x0160
+ f0e:	80 91 41 01 	lds	r24, 0x0141
+ f12:	98 13       	cpse	r25, r24
+ f14:	be cf       	rjmp	.-132    	; 0xe92 <main+0x86>
+{
+sw1 = 0;
+ f16:	10 92 35 01 	sts	0x0135, r1
+while (al_enable == 1) // 알람 실행시
+ f1a:	1c c0       	rjmp	.+56     	; 0xf54 <main+0x148>
+{
+OCR1A = 100; // 20ms마다 사운드크기 100으로 설정
+ f1c:	1b bd       	out	0x2b, r17	; 43
+ f1e:	0a bd       	out	0x2a, r16	; 42
+ f20:	2f ef       	ldi	r18, 0xFF	; 255
+ f22:	89 ef       	ldi	r24, 0xF9	; 249
+ f24:	90 e0       	ldi	r25, 0x00	; 0
+ f26:	21 50       	subi	r18, 0x01	; 1
+ f28:	80 40       	sbci	r24, 0x00	; 0
+ f2a:	90 40       	sbci	r25, 0x00	; 0
+ f2c:	e1 f7       	brne	.-8      	; 0xf26 <main+0x11a>
+ f2e:	00 c0       	rjmp	.+0      	; 0xf30 <main+0x124>
+ f30:	00 00       	nop
+_delay_ms(20);
+OCR1A = 255; // 20ms마다 사운드크기 255로 설정
+ f32:	db bd       	out	0x2b, r29	; 43
+ f34:	ca bd       	out	0x2a, r28	; 42
+ f36:	2f ef       	ldi	r18, 0xFF	; 255
+ f38:	89 ef       	ldi	r24, 0xF9	; 249
+ f3a:	90 e0       	ldi	r25, 0x00	; 0
+ f3c:	21 50       	subi	r18, 0x01	; 1
+ f3e:	80 40       	sbci	r24, 0x00	; 0
+ f40:	90 40       	sbci	r25, 0x00	; 0
+ f42:	e1 f7       	brne	.-8      	; 0xf3c <main+0x130>
+ f44:	00 c0       	rjmp	.+0      	; 0xf46 <main+0x13a>
+ f46:	00 00       	nop
+_delay_ms(20);
+if (sw1 == 1)
+ f48:	80 91 35 01 	lds	r24, 0x0135
+ f4c:	81 30       	cpi	r24, 0x01	; 1
+ f4e:	11 f4       	brne	.+4      	; 0xf54 <main+0x148>
+{
+al_enable = 0; // Button2를 누르면 사운드 꺼짐
+ f50:	10 92 37 01 	sts	0x0137, r1
+}
+ 
+if (al_enable == 1 && FND_DATA[0] == time_ms % 10 && FND_DATA[1] == time_ms / 10 && FND_DATA[2] == time_s % 10 && FND_DATA[3] == time_s / 10 && FND_DATA[4] == time_m) //알람 기능이 On이고 저장된 시간과 현재 시간이 일치할 경우
+{
+sw1 = 0;
+while (al_enable == 1) // 알람 실행시
+ f54:	80 91 37 01 	lds	r24, 0x0137
+ f58:	81 30       	cpi	r24, 0x01	; 1
+ f5a:	01 f3       	breq	.-64     	; 0xf1c <main+0x110>
+{
+al_enable = 0; // Button2를 누르면 사운드 꺼짐
+}
+ 
+}
+sw1 = 0; // 2번째Button 초기화
+ f5c:	10 92 35 01 	sts	0x0135, r1
+ f60:	98 cf       	rjmp	.-208    	; 0xe92 <main+0x86>
+
+00000f62 <__udivmodqi4>:
+ f62:	99 1b       	sub	r25, r25
+ f64:	79 e0       	ldi	r23, 0x09	; 9
+ f66:	04 c0       	rjmp	.+8      	; 0xf70 <__udivmodqi4_ep>
+
+00000f68 <__udivmodqi4_loop>:
+ f68:	99 1f       	adc	r25, r25
+ f6a:	96 17       	cp	r25, r22
+ f6c:	08 f0       	brcs	.+2      	; 0xf70 <__udivmodqi4_ep>
+ f6e:	96 1b       	sub	r25, r22
+
+00000f70 <__udivmodqi4_ep>:
+ f70:	88 1f       	adc	r24, r24
+ f72:	7a 95       	dec	r23
+ f74:	c9 f7       	brne	.-14     	; 0xf68 <__udivmodqi4_loop>
+ f76:	80 95       	com	r24
+ f78:	08 95       	ret
+
+00000f7a <__udivmodhi4>:
+ f7a:	aa 1b       	sub	r26, r26
+ f7c:	bb 1b       	sub	r27, r27
+ f7e:	51 e1       	ldi	r21, 0x11	; 17
+ f80:	07 c0       	rjmp	.+14     	; 0xf90 <__udivmodhi4_ep>
+
+00000f82 <__udivmodhi4_loop>:
+ f82:	aa 1f       	adc	r26, r26
+ f84:	bb 1f       	adc	r27, r27
+ f86:	a6 17       	cp	r26, r22
+ f88:	b7 07       	cpc	r27, r23
+ f8a:	10 f0       	brcs	.+4      	; 0xf90 <__udivmodhi4_ep>
+ f8c:	a6 1b       	sub	r26, r22
+ f8e:	b7 0b       	sbc	r27, r23
+
+00000f90 <__udivmodhi4_ep>:
+ f90:	88 1f       	adc	r24, r24
+ f92:	99 1f       	adc	r25, r25
+ f94:	5a 95       	dec	r21
+ f96:	a9 f7       	brne	.-22     	; 0xf82 <__udivmodhi4_loop>
+ f98:	80 95       	com	r24
+ f9a:	90 95       	com	r25
+ f9c:	bc 01       	movw	r22, r24
+ f9e:	cd 01       	movw	r24, r26
+ fa0:	08 95       	ret
+
+00000fa2 <_exit>:
+ fa2:	f8 94       	cli
+
+00000fa4 <__stop_program>:
+ fa4:	ff cf       	rjmp	.-2      	; 0xfa4 <__stop_program>
