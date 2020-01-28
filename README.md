@@ -2,7 +2,7 @@
 
 Digital clock operation using ATmega128, an AVR Processor based microcontroller unit
 
-You can use a digital clock, stopwatch, alarm, down count timer, and calculator.
+You can use a digital clock, stopwatch, alarm, down count timer, and calculator
 
 • Designed the Atmega128 Board and wrote the software programs in C language
 
