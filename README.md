@@ -18,11 +18,14 @@ You can use a digital clock, stopwatch, alarm, down count timer, and calculator
 
 • Mode4 (Calculator): A calculator performs arithmetic operations. Enter two digits using switch2 and 3 to achieve the desired arithmetic operation with switch6
 
-### 1.Circuit
+## Circuit
 ![circuit](https://user-images.githubusercontent.com/52568892/73293052-c9047a80-41c8-11ea-9f3c-a13189181150.jpg)
 
-### 2.Front
+## Front
 ![front](https://user-images.githubusercontent.com/52568892/73293360-5f38a080-41c9-11ea-9135-426a4f5d95c9.jpg)
 
-### 3.Back
+## Back
 ![back](https://user-images.githubusercontent.com/52568892/73293379-6a8bcc00-41c9-11ea-9a64-9ef17bc4f633.jpg)
+
+## License
+[MIT](https://github.com/minji-mia/ATmega128/blob/master/LICENSE)
