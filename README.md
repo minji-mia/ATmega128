@@ -27,5 +27,10 @@ You can use a digital clock, stopwatch, alarm, down count timer, and calculator
 ## Back
 ![back](https://user-images.githubusercontent.com/52568892/73293379-6a8bcc00-41c9-11ea-9a64-9ef17bc4f633.jpg)
 
+## Built with
+
+- [C](https://en.cppreference.com/w/c/language)
+
 ## License
-[MIT](https://github.com/minji-mia/ATmega128/blob/master/LICENSE)
+
+This project is licensed under the [MIT](https://github.com/minji-mia/ATmega128/blob/master/LICENSE) License
